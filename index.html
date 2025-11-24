@@ -49,11 +49,6 @@ header h1 {
     font-weight: 600;
 }
 
-header p {
-    font-size: 1.15rem;
-    color: var(--muted);
-}
-
 .filters {
     text-align: center;
     margin: 25px 0 40px;
@@ -71,10 +66,6 @@ header p {
     transition: 0.25s;
 }
 
-.filters button:hover {
-    opacity: 0.85;
-}
-
 .dark-toggle {
     position: fixed;
     top: 20px;
@@ -87,7 +78,6 @@ header p {
     font-size: 0.85rem;
     box-shadow: var(--shadow);
     z-index: 99;
-    transition: 0.3s;
 }
 
 .gallery {
@@ -98,13 +88,8 @@ header p {
     margin: auto;
 }
 
-@media (max-width: 900px) {
-    .gallery { column-count: 2; }
-}
-
-@media (max-width: 600px) {
-    .gallery { column-count: 1; }
-}
+@media (max-width: 900px) { .gallery { column-count: 2; } }
+@media (max-width: 600px) { .gallery { column-count: 1; } }
 
 .item {
     margin-bottom: 18px;
@@ -122,7 +107,6 @@ header p {
     width: 100%;
     display: block;
     border-bottom: 1px solid #0001;
-    object-fit: cover;
 }
 
 .item .caption {
@@ -131,12 +115,7 @@ header p {
     font-size: 0.9rem;
 }
 
-@keyframes fadeIn {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
+@keyframes fadeIn { to { opacity: 1; transform: translateY(0); } }
 
 footer {
     margin: 40px 0 50px;
@@ -163,45 +142,43 @@ footer {
 
 <div class="gallery">
 
-<!-- MATURE -->
-<div class="item mature"><img src="images/18/999 till the wrld blow.JPEG" loading="lazy"><div class="caption">999 Till The Wrld Blow</div></div>
-<div class="item mature"><img src="images/18/away from bikini bottom.JPEG" loading="lazy"><div class="caption">Away From Bikini Bottom</div></div>
-<div class="item mature"><img src="images/18/can you feel it mr krabs.JPEG" loading="lazy"><div class="caption">Can You Feel It Mr Krabs</div></div>
-<div class="item mature"><img src="images/18/gay-lien invaders.JPEG" loading="lazy"><div class="caption">Gay-lien Invaders</div></div>
-<div class="item mature"><img src="images/18/scooby crew, where are you.JPEG" loading="lazy"><div class="caption">Scooby Crew, Where Are You</div></div>
+<!-- ========== MATURE ========== -->
+<div class="item mature"><img src="images/18/999_till_the_world_blow.jpeg"><div class="caption">999 Till The World Blow</div></div>
+<div class="item mature"><img src="images/18/away_from_bikini_bottom.jpeg"><div class="caption">Away From Bikini Bottom</div></div>
+<div class="item mature"><img src="images/18/can_you_feel_it_mr_krabs.jpeg"><div class="caption">Can You Feel It Mr Krabs</div></div>
+<div class="item mature"><img src="images/18/gay-lien_invaders.jpeg"><div class="caption">Gay-lien Invaders</div></div>
+<div class="item mature"><img src="images/18/scooby_crew,_where_are_you.jpeg"><div class="caption">Scooby Crew, Where Are You</div></div>
 
-<!-- CHILDREN -->
-<div class="item children"><img src="images/children/becky look at her butt.JPEG" loading="lazy"><div class="caption">Becky Look At Her Butt</div></div>
-<div class="item children"><img src="images/children/buttered toast.JPEG" loading="lazy"><div class="caption">Buttered Toast</div></div>
-<div class="item children"><img src="images/children/cheeky devil.JPEG" loading="lazy"><div class="caption">Cheeky Devil</div></div>
-<div class="item children"><img src="images/children/derek 'n dorris.JPEG" loading="lazy"><div class="caption">Derek 'n Dorris</div></div>
-<div class="item children"><img src="images/children/don't disturb sandy cheeks.JPEG" loading="lazy"><div class="caption">Don't Disturb Sandy Cheeks</div></div>
-<div class="item children"><img src="images/children/encourage courage.JPEG" loading="lazy"><div class="caption">Encourage Courage</div></div>
-<div class="item children"><img src="images/children/johnny got guns.JPEG" loading="lazy"><div class="caption">Johnny Got Guns</div></div>
-<div class="item children"><img src="images/children/lost in space.JPEG" loading="lazy"><div class="caption">Lost In Space</div></div>
-<div class="item children"><img src="images/children/masterpiece.JPEG" loading="lazy"><div class="caption">Masterpiece</div></div>
-<div class="item children"><img src="images/children/not again.JPEG" loading="lazy"><div class="caption">Not Again</div></div>
-<div class="item children"><img src="images/children/poobob.JPEG" loading="lazy"><div class="caption">Poobob</div></div>
-<div class="item children"><img src="images/children/portal of hell.JPEG" loading="lazy"><div class="caption">Portal Of Hell</div></div>
-<div class="item children"><img src="images/children/squidddy taste pie.JPEG" loading="lazy"><div class="caption">Squidddy Taste Pie</div></div>
-<div class="item children"><img src="images/children/squidddy.JPEG" loading="lazy"><div class="caption">Squidddy</div></div>
-<div class="item children"><img src="images/children/tree frog.JPEG" loading="lazy"><div class="caption">Tree Frog</div></div>
-<div class="item children"><img src="images/children/urgh urgh.JPEG" loading="lazy"><div class="caption">Urgh Urgh</div></div>
-<div class="item children"><img src="images/children/victory is mine.JPEG" loading="lazy"><div class="caption">Victory Is Mine</div></div>
-<div class="item children"><img src="images/children/who's that handsome man.JPEG" loading="lazy"><div class="caption">Who's That Handsome Man</div></div>
-<div class="item children"><img src="images/children/why did the chicken cross the road.JPEG" loading="lazy"><div class="caption">Why Did The Chicken Cross The Road?</div></div>
+<!-- ========== CHILDREN ========== -->
+<div class="item children"><img src="images/children/becky_look_at_her_butt.jpeg"><div class="caption">Becky Look At Her Butt</div></div>
+<div class="item children"><img src="images/children/buttered_toast.jpeg"><div class="caption">Buttered Toast</div></div>
+<div class="item children"><img src="images/children/cheeky_devil.jpeg"><div class="caption">Cheeky Devil</div></div>
+<div class="item children"><img src="images/children/derek_n_dorris.jpeg"><div class="caption">Derek 'n Dorris</div></div>
+<div class="item children"><img src="images/children/dont_disturb_sandy_cheeks.jpeg"><div class="caption">Don't Disturb Sandy Cheeks</div></div>
+<div class="item children"><img src="images/children/encourage_courage.jpeg"><div class="caption">Encourage Courage</div></div>
+<div class="item children"><img src="images/children/johnny_got_guns.jpeg"><div class="caption">Johnny Got Guns</div></div>
+<div class="item children"><img src="images/children/lost_in_space.jpeg"><div class="caption">Lost In Space</div></div>
+<div class="item children"><img src="images/children/masterpiece.jpeg"><div class="caption">Masterpiece</div></div>
+<div class="item children"><img src="images/children/not_again.jpeg"><div class="caption">Not Again</div></div>
+<div class="item children"><img src="images/children/poobob.jpeg"><div class="caption">Poobob</div></div>
+<div class="item children"><img src="images/children/portal_of_hell.jpeg"><div class="caption">Portal Of Hell</div></div>
+<div class="item children"><img src="images/children/squidddy_taste_pie.jpeg"><div class="caption">Squidddy Taste Pie</div></div>
+<div class="item children"><img src="images/children/squidddy.jpeg"><div class="caption">Squidddy</div></div>
+<div class="item children"><img src="images/children/tree_frog.jpeg"><div class="caption">Tree Frog</div></div>
+<div class="item children"><img src="images/children/urgh_urgh.jpeg"><div class="caption">Urgh Urgh</div></div>
+<div class="item children"><img src="images/children/victory_is_mine.jpeg"><div class="caption">Victory Is Mine</div></div>
+<div class="item children"><img src="images/children/whos_that_handsome_man.jpeg"><div class="caption">Who's That Handsome Man</div></div>
+<div class="item children"><img src="images/children/why_did_the_chicken_cross_the_road.jpeg"><div class="caption">Why Did The Chicken Cross The Road?</div></div>
+
 </div>
 
-<footer>
-    © 2025 Molly’s Art. All Rights Reserved.
-</footer>
+<footer>© 2025 Molly’s Art. All Rights Reserved.</footer>
 
 <script>
 function filterItems(category) {
-    const items = document.querySelectorAll('.item');
-    items.forEach(item => {
-        item.style.display = (category === 'all' || item.classList.contains(category)) 
-            ? 'block' 
+    document.querySelectorAll('.item').forEach(item => {
+        item.style.display = (category === 'all' || item.classList.contains(category))
+            ? 'block'
             : 'none';
     });
 }
