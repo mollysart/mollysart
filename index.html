@@ -28,7 +28,6 @@
     --shadow: 0 8px 26px rgba(0,0,0,0.12);
 }
 
-/* Dark mode toggle styles */
 body.dark {
     --bg: #121212;
     --text: #f2f2f2;
@@ -89,14 +88,6 @@ header p {
 .filters button:hover {
     opacity: 0.85;
 }
-
-.filters button.inactive {
-    background: var(--muted);
-}
-
-/* ---------------------------
-   DARK MODE TOGGLE
---------------------------- */
 
 .dark-toggle {
     position: fixed;
@@ -185,7 +176,7 @@ footer {
 
 <header>
     <h1>Molly’s Art Gallery</h1>
-    <p>A premium visual collection of expressive canvas artwork</p>
+    <p>A premium collection of expressive, bold, and character-filled artwork.</p>
 </header>
 
 <!-- FILTER BUTTONS -->
@@ -198,27 +189,31 @@ footer {
 <!-- GALLERY -->
 <div class="gallery">
 
-    <!-- CHILDREN EXAMPLES -->
-    <div class="item children">
-        <img src="images/children/sample1.jpg" loading="lazy" alt="Children friendly art">
-        <div class="caption">Children-safe artwork</div>
-    </div>
+<!-- ---------------- MATURE (images/18+/) ---------------- -->
+<div class="item mature"><img src="images/18+/999 till the wrld blow.JPEG" loading="lazy"><div class="caption">999 Till The Wrld Blow</div></div>
+<div class="item mature"><img src="images/18+/away from bikini bottom.JPEG" loading="lazy"><div class="caption">Away From Bikini Bottom</div></div>
+<div class="item mature"><img src="images/18+/can you feel it mr krabs.JPEG" loading="lazy"><div class="caption">Can You Feel It Mr Krabs</div></div>
+<div class="item mature"><img src="images/18+/gay-lien invaders.JPEG" loading="lazy"><div class="caption">Gay-lien Invaders</div></div>
+<div class="item mature"><img src="images/18+/scooby crew, where are you.JPEG" loading="lazy"><div class="caption">Scooby Crew, Where Are You</div></div>
 
-    <div class="item children">
-        <img src="images/children/sample2.jpg" loading="lazy" alt="Children friendly art">
-        <div class="caption">Children-safe artwork</div>
-    </div>
-
-    <!-- MATURE EXAMPLES -->
-    <div class="item mature">
-        <img src="images/mature/sample1.jpg" loading="lazy" alt="Mature themed art">
-        <div class="caption">Mature artwork</div>
-    </div>
-
-    <div class="item mature">
-        <img src="images/mature/sample2.jpg" loading="lazy" alt="Mature themed art">
-        <div class="caption">Mature artwork</div>
-    </div>
+<!-- ---------------- CHILDREN (children/) ---------------- -->
+<div class="item children"><img src="children/becky look at her butt.JPEG" loading="lazy"><div class="caption">Becky Look At Her Butt</div></div>
+<div class="item children"><img src="children/buttered toast.JPEG" loading="lazy"><div class="caption">Buttered Toast</div></div>
+<div class="item children"><img src="children/cheeky devil.JPEG" loading="lazy"><div class="caption">Cheeky Devil</div></div>
+<div class="item children"><img src="children/derek 'n dorris.JPEG" loading="lazy"><div class="caption">Derek 'n Dorris</div></div>
+<div class="item children"><img src="children/don't disturb sandy cheeks.JPEG" loading="lazy"><div class="caption">Don't Disturb Sandy Cheeks</div></div>
+<div class="item children"><img src="children/encourage courage.JPEG" loading="lazy"><div class="caption">Encourage Courage</div></div>
+<div class="item children"><img src="children/johnny got guns.JPEG" loading="lazy"><div class="caption">Johnny Got Guns</div></div>
+<div class="item children"><img src="children/lost in space.JPEG" loading="lazy"><div class="caption">Lost in Space</div></div>
+<div class="item children"><img src="children/masterpiece.JPEG" loading="lazy"><div class="caption">Masterpiece</div></div>
+<div class="item children"><img src="children/not again.JPEG" loading="lazy"><div class="caption">Not Again</div></div>
+<div class="item children"><img src="children/pooboob.JPEG" loading="lazy"><div class="caption">Pooboob</div></div>
+<div class="item children"><img src="children/portal of hell.JPEG" loading="lazy"><div class="caption">Portal Of Hell</div></div>
+<div class="item children"><img src="children/squidddy.JPEG" loading="lazy"><div class="caption">Squidddy</div></div>
+<div class="item children"><img src="children/squidddy taste pie.JPEG" loading="lazy"><div class="caption">Squidddy Taste Pie</div></div>
+<div class="item children"><img src="children/tree frog.JPEG" loading="lazy"><div class="caption">Tree Frog</div></div>
+<div class="item children"><img src="children/urgh urgh.JPEG" loading="lazy"><div class="caption">Urgh Urgh</div></div>
+<div class="item children"><img src="children/victory is mine.JPEG" loading="lazy"><div class="caption">Victory Is Mine</div></div>
 
 </div>
 
@@ -227,9 +222,7 @@ footer {
 </footer>
 
 <script>
-/* ---------------------------
-   FILTERING FUNCTION
---------------------------- */
+/* FILTERING */
 function filterItems(category) {
     const items = document.querySelectorAll('.item');
     items.forEach(item => {
@@ -239,14 +232,9 @@ function filterItems(category) {
             item.style.display = item.classList.contains(category) ? 'block' : 'none';
         }
     });
-
-    const buttons = document.querySelectorAll(".filters button");
-    buttons.forEach(btn => btn.classList.remove("inactive"));
 }
 
-/* ---------------------------
-   DARK MODE
---------------------------- */
+/* DARK MODE */
 function toggleDarkMode() {
     document.body.classList.toggle("dark");
 }
