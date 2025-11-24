@@ -12,18 +12,12 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
-
-/* ---------------------------
-   THEME / BASE
---------------------------- */
-
 :root {
     --bg: #f5f5f8;
     --text: #111;
     --card-bg: #fff;
     --accent: #6a4bff;
     --muted: #666;
-
     --radius: 18px;
     --shadow: 0 8px 26px rgba(0,0,0,0.12);
 }
@@ -44,10 +38,6 @@ body {
     transition: background 0.3s, color 0.3s;
 }
 
-/* ---------------------------
-   HEADER
---------------------------- */
-
 header {
     text-align: center;
     padding: 50px 20px 40px;
@@ -63,10 +53,6 @@ header p {
     font-size: 1.15rem;
     color: var(--muted);
 }
-
-/* ---------------------------
-   FILTER BUTTONS
---------------------------- */
 
 .filters {
     text-align: center;
@@ -103,14 +89,6 @@ header p {
     z-index: 99;
     transition: 0.3s;
 }
-
-.dark-toggle:hover {
-    opacity: 0.9;
-}
-
-/* ---------------------------
-   GALLERY (MASONRY)
---------------------------- */
 
 .gallery {
     column-count: 3;
@@ -153,7 +131,6 @@ header p {
     font-size: 0.9rem;
 }
 
-/* Fade animation */
 @keyframes fadeIn {
     to {
         opacity: 1;
@@ -166,7 +143,6 @@ footer {
     text-align: center;
     color: var(--muted);
 }
-
 </style>
 </head>
 
@@ -179,42 +155,41 @@ footer {
     <p>A premium collection of expressive, bold, and character-filled artwork.</p>
 </header>
 
-<!-- FILTER BUTTONS -->
 <div class="filters">
     <button onclick="filterItems('all')">All</button>
     <button onclick="filterItems('children')">Children</button>
     <button onclick="filterItems('mature')">Mature</button>
 </div>
 
-<!-- GALLERY -->
 <div class="gallery">
 
-<!-- ---------------- MATURE (images/18+/) ---------------- -->
-<div class="item mature"><img src="images/18+/999 till the wrld blow.JPEG" loading="lazy"><div class="caption">999 Till The Wrld Blow</div></div>
-<div class="item mature"><img src="images/18+/away from bikini bottom.JPEG" loading="lazy"><div class="caption">Away From Bikini Bottom</div></div>
-<div class="item mature"><img src="images/18+/can you feel it mr krabs.JPEG" loading="lazy"><div class="caption">Can You Feel It Mr Krabs</div></div>
-<div class="item mature"><img src="images/18+/gay-lien invaders.JPEG" loading="lazy"><div class="caption">Gay-lien Invaders</div></div>
-<div class="item mature"><img src="images/18+/scooby crew, where are you.JPEG" loading="lazy"><div class="caption">Scooby Crew, Where Are You</div></div>
+<!-- MATURE -->
+<div class="item mature"><img src="images/18+/%39999%20till%20the%20wrld%20blow.JPEG" loading="lazy"><div class="caption">999 Till The Wrld Blow</div></div>
+<div class="item mature"><img src="images/18+/away%20from%20bikini%20bottom.JPEG" loading="lazy"><div class="caption">Away From Bikini Bottom</div></div>
+<div class="item mature"><img src="images/18+/can%20you%20feel%20it%20mr%20krabs.JPEG" loading="lazy"><div class="caption">Can You Feel It Mr Krabs</div></div>
+<div class="item mature"><img src="images/18+/gay-lien%20invaders.JPEG" loading="lazy"><div class="caption">Gay-lien Invaders</div></div>
+<div class="item mature"><img src="images/18+/scooby%20crew,%20where%20are%20you.JPEG" loading="lazy"><div class="caption">Scooby Crew, Where Are You</div></div>
 
-<!-- ---------------- CHILDREN (images/children/) ---------------- -->
-<div class="item children"><img src="images/children/becky look at her butt.JPEG" loading="lazy"><div class="caption">Becky Look At Her Butt</div></div>
-<div class="item children"><img src="images/children/buttered toast.JPEG" loading="lazy"><div class="caption">Buttered Toast</div></div>
-<div class="item children"><img src="images/children/cheeky devil.JPEG" loading="lazy"><div class="caption">Cheeky Devil</div></div>
-<div class="item children"><img src="images/children/derek 'n dorris.JPEG" loading="lazy"><div class="caption">Derek 'n Dorris</div></div>
-<div class="item children"><img src="images/children/don't disturb sandy cheeks.JPEG" loading="lazy"><div class="caption">Don't Disturb Sandy Cheeks</div></div>
-<div class="item children"><img src="images/children/encourage courage.JPEG" loading="lazy"><div class="caption">Encourage Courage</div></div>
-<div class="item children"><img src="images/children/johnny got guns.JPEG" loading="lazy"><div class="caption">Johnny Got Guns</div></div>
-<div class="item children"><img src="images/children/lost in space.JPEG" loading="lazy"><div class="caption">Lost in Space</div></div>
+<!-- CHILDREN -->
+<div class="item children"><img src="images/children/becky%20look%20at%20her%20butt.JPEG" loading="lazy"><div class="caption">Becky Look At Her Butt</div></div>
+<div class="item children"><img src="images/children/buttered%20toast.JPEG" loading="lazy"><div class="caption">Buttered Toast</div></div>
+<div class="item children"><img src="images/children/cheeky%20devil.JPEG" loading="lazy"><div class="caption">Cheeky Devil</div></div>
+<div class="item children"><img src="images/children/derek%20'n%20dorris.JPEG" loading="lazy"><div class="caption">Derek 'n Dorris</div></div>
+<div class="item children"><img src="images/children/don't%20disturb%20sandy%20cheeks.JPEG" loading="lazy"><div class="caption">Don't Disturb Sandy Cheeks</div></div>
+<div class="item children"><img src="images/children/encourage%20courage.JPEG" loading="lazy"><div class="caption">Encourage Courage</div></div>
+<div class="item children"><img src="images/children/johnny%20got%20guns.JPEG" loading="lazy"><div class="caption">Johnny Got Guns</div></div>
+<div class="item children"><img src="images/children/lost%20in%20space.JPEG" loading="lazy"><div class="caption">Lost In Space</div></div>
 <div class="item children"><img src="images/children/masterpiece.JPEG" loading="lazy"><div class="caption">Masterpiece</div></div>
-<div class="item children"><img src="images/children/not again.JPEG" loading="lazy"><div class="caption">Not Again</div></div>
-<div class="item children"><img src="images/children/pooboob.JPEG" loading="lazy"><div class="caption">Pooboob</div></div>
-<div class="item children"><img src="images/children/portal of hell.JPEG" loading="lazy"><div class="caption">Portal Of Hell</div></div>
+<div class="item children"><img src="images/children/not%20again.JPEG" loading="lazy"><div class="caption">Not Again</div></div>
+<div class="item children"><img src="images/children/poobob.JPEG" loading="lazy"><div class="caption">Poobob</div></div>
+<div class="item children"><img src="images/children/portal%20of%20hell.JPEG" loading="lazy"><div class="caption">Portal Of Hell</div></div>
+<div class="item children"><img src="images/children/squidddy%20taste%20pie.JPEG" loading="lazy"><div class="caption">Squidddy Taste Pie</div></div>
 <div class="item children"><img src="images/children/squidddy.JPEG" loading="lazy"><div class="caption">Squidddy</div></div>
-<div class="item children"><img src="images/children/squidddy taste pie.JPEG" loading="lazy"><div class="caption">Squidddy Taste Pie</div></div>
-<div class="item children"><img src="images/children/tree frog.JPEG" loading="lazy"><div class="caption">Tree Frog</div></div>
-<div class="item children"><img src="images/children/urgh urgh.JPEG" loading="lazy"><div class="caption">Urgh Urgh</div></div>
-<div class="item children"><img src="images/children/victory is mine.JPEG" loading="lazy"><div class="caption">Victory Is Mine</div></div>
-
+<div class="item children"><img src="images/children/tree%20frog.JPEG" loading="lazy"><div class="caption">Tree Frog</div></div>
+<div class="item children"><img src="images/children/urgh%20urgh.JPEG" loading="lazy"><div class="caption">Urgh Urgh</div></div>
+<div class="item children"><img src="images/children/victory%20is%20mine.JPEG" loading="lazy"><div class="caption">Victory Is Mine</div></div>
+<div class="item children"><img src="images/children/who's%20that%20handsome%20man.JPEG" loading="lazy"><div class="caption">Who's That Handsome Man</div></div>
+<div class="item children"><img src="images/children/why%20did%20the%20chicken%20cross%20the%20road.JPEG" loading="lazy"><div class="caption">Why Did The Chicken Cross The Road?</div></div>
 </div>
 
 <footer>
@@ -222,19 +197,15 @@ footer {
 </footer>
 
 <script>
-/* FILTERING */
 function filterItems(category) {
     const items = document.querySelectorAll('.item');
     items.forEach(item => {
-        if (category === 'all') {
-            item.style.display = 'block';
-        } else {
-            item.style.display = item.classList.contains(category) ? 'block' : 'none';
-        }
+        item.style.display = (category === 'all' || item.classList.contains(category)) 
+            ? 'block' 
+            : 'none';
     });
 }
 
-/* DARK MODE */
 function toggleDarkMode() {
     document.body.classList.toggle("dark");
 }
