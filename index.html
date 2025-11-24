@@ -4,8 +4,8 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>Molly’s Art Gallery – Premium Collection</title>
-<meta name="description" content="Explore Molly’s expressive, unique canvas paintings across children-safe and mature categories. Premium art gallery layout.">
+<title>Molly’s Art Gallery – Hand Painted Canvases</title>
+<meta name="description" content="Explore my expressive, unique canvas paintings across children-safe and mature categories. Premium art gallery layout.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,13 +13,13 @@
 
 <style>
 :root {
-    --bg: #f5f5f8;
-    --text: #111;
-    --card-bg: #fff;
-    --accent: #6a4bff;
+    --bg: #f4f4f8;
+    --text: #222;
+    --card-bg: #ffffff;
+    --accent: #7b5cff;
     --muted: #666;
-    --radius: 18px;
-    --shadow: 0 8px 26px rgba(0,0,0,0.12);
+    --radius: 20px;
+    --shadow: 0 10px 30px rgba(0,0,0,0.12);
 }
 
 body.dark {
@@ -27,36 +27,42 @@ body.dark {
     --text: #f2f2f2;
     --card-bg: #1e1e1e;
     --muted: #bbb;
-    --accent: #9f83ff;
+    --accent: #a18bff;
 }
 
 body {
     margin: 0;
     background: var(--bg);
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
     color: var(--text);
-    transition: background 0.3s, color 0.3s;
+    transition: 0.3s;
 }
 
 header {
     text-align: center;
-    padding: 50px 20px 40px;
+    padding: 60px 20px 35px;
 }
 
 header h1 {
     margin: 0;
-    font-size: 2.7rem;
+    font-size: 2.9rem;
     font-weight: 600;
+}
+
+header p {
+    margin-top: 10px;
+    font-size: 1.15rem;
+    color: var(--muted);
 }
 
 .filters {
     text-align: center;
-    margin: 25px 0 40px;
+    margin: 10px 0 40px;
 }
 
 .filters button {
-    padding: 10px 22px;
-    margin: 5px;
+    padding: 10px 26px;
+    margin: 6px;
     border: none;
     background: var(--accent);
     color: #fff;
@@ -64,6 +70,10 @@ header h1 {
     font-size: 0.95rem;
     cursor: pointer;
     transition: 0.25s;
+}
+
+.filters button:hover {
+    opacity: 0.85;
 }
 
 .dark-toggle {
@@ -82,9 +92,9 @@ header h1 {
 
 .gallery {
     column-count: 3;
-    column-gap: 18px;
-    padding: 0 20px;
-    max-width: 1200px;
+    column-gap: 22px;
+    padding: 0 25px;
+    max-width: 1300px;
     margin: auto;
 }
 
@@ -92,7 +102,7 @@ header h1 {
 @media (max-width: 600px) { .gallery { column-count: 1; } }
 
 .item {
-    margin-bottom: 18px;
+    margin-bottom: 22px;
     break-inside: avoid;
     background: var(--card-bg);
     border-radius: var(--radius);
@@ -106,19 +116,22 @@ header h1 {
 .item img {
     width: 100%;
     display: block;
-    border-bottom: 1px solid #0001;
+    object-fit: cover;
 }
 
-.item .caption {
-    padding: 14px;
-    color: var(--muted);
-    font-size: 0.9rem;
+.caption {
+    padding: 15px;
+    color: var(--text);
+    font-size: 1rem;
+    font-weight: 500;
 }
 
-@keyframes fadeIn { to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeIn {
+    to { opacity: 1; transform: translateY(0); }
+}
 
 footer {
-    margin: 40px 0 50px;
+    margin: 50px 0 60px;
     text-align: center;
     color: var(--muted);
 }
@@ -142,44 +155,73 @@ footer {
 
 <div class="gallery">
 
-<!-- ========== MATURE ========== -->
-<div class="item mature"><img src="images/18/999_till_the_world_blow.jpeg"><div class="caption">999 Till The World Blow</div></div>
-<div class="item mature"><img src="images/18/away_from_bikini_bottom.jpeg"><div class="caption">Away From Bikini Bottom</div></div>
-<div class="item mature"><img src="images/18/can_you_feel_it_mr_krabs.jpeg"><div class="caption">Can You Feel It Mr Krabs</div></div>
-<div class="item mature"><img src="images/18/gay-lien_invaders.jpeg"><div class="caption">Gay-lien Invaders</div></div>
-<div class="item mature"><img src="images/18/scooby_crew,_where_are_you.jpeg"><div class="caption">Scooby Crew, Where Are You</div></div>
+<!-- ========== MATURE ART ========== -->
 
-<!-- ========== CHILDREN ========== -->
-<div class="item children"><img src="images/children/becky_look_at_her_butt.jpeg"><div class="caption">Becky Look At Her Butt</div></div>
+<div class="item mature"><img src="images/18/999_till_the_world_blow.jpeg"><div class="caption">999 Till The World Blow</div></div>
+
+<div class="item mature"><img src="images/18/away_from_bikini_bottom.jpeg"><div class="caption">Away From Bikini Bottom</div></div>
+
+<div class="item mature"><img src="images/18/can_you_feel_it_yet_mr_krabs.jpeg"><div class="caption">Can You Feel It Mr Krabs</div></div>
+
+<div class="item mature"><img src="images/18/cheeky_devil.jpeg"><div class="caption">Cheeky Devil</div></div>
+
+<div class="item mature"><img src="images/18/gaylien_invaders.jpeg"><div class="caption">Gay-lien Invaders</div></div>
+
+<div class="item mature"><img src="images/18/not_again.jpeg"><div class="caption">Not Again</div></div>
+
+<div class="item mature"><img src="images/18/omg_becky_look_at_her_butt.jpeg"><div class="caption">OMG Becky Look At Her Butt</div></div>
+
+<div class="item mature"><img src="images/18/poobob.jpeg"><div class="caption">Poobob</div></div>
+
+<div class="item mature"><img src="images/18/portal_of_hell.jpeg"><div class="caption">Portal Of Hell</div></div>
+
+<div class="item mature"><img src="images/18/scooby_crew_where_are_you.jpeg"><div class="caption">Scooby Crew, Where Are You</div></div>
+
+<div class="item mature"><img src="images/18/squidddy.jpeg"><div class="caption">Squidddy</div></div>
+
+<div class="item mature"><img src="images/18/squidddy_pie.jpeg"><div class="caption">Squidddy Taste Pie</div></div>
+
+<div class="item mature"><img src="images/18/why_did_the_chicken_cross_the_road.jpeg"><div class="caption">Why Did The Chicken Cross The Road?</div></div>
+
+
+<!-- ========== CHILDREN ART ========== -->
+
 <div class="item children"><img src="images/children/buttered_toast.jpeg"><div class="caption">Buttered Toast</div></div>
-<div class="item children"><img src="images/children/cheeky_devil.jpeg"><div class="caption">Cheeky Devil</div></div>
+
 <div class="item children"><img src="images/children/derek_n_dorris.jpeg"><div class="caption">Derek 'n Dorris</div></div>
+
 <div class="item children"><img src="images/children/dont_disturb_sandy_cheeks.jpeg"><div class="caption">Don't Disturb Sandy Cheeks</div></div>
+
 <div class="item children"><img src="images/children/encourage_courage.jpeg"><div class="caption">Encourage Courage</div></div>
-<div class="item children"><img src="images/children/johnny_got_guns.jpeg"><div class="caption">Johnny Got Guns</div></div>
+
+<div class="item children"><img src="images/children/frog.jpeg"><div class="caption">Tree Frog</div></div>
+
 <div class="item children"><img src="images/children/lost_in_space.jpeg"><div class="caption">Lost In Space</div></div>
+
 <div class="item children"><img src="images/children/masterpiece.jpeg"><div class="caption">Masterpiece</div></div>
+
 <div class="item children"><img src="images/children/not_again.jpeg"><div class="caption">Not Again</div></div>
-<div class="item children"><img src="images/children/poobob.jpeg"><div class="caption">Poobob</div></div>
-<div class="item children"><img src="images/children/portal_of_hell.jpeg"><div class="caption">Portal Of Hell</div></div>
-<div class="item children"><img src="images/children/squidddy_taste_pie.jpeg"><div class="caption">Squidddy Taste Pie</div></div>
-<div class="item children"><img src="images/children/squidddy.jpeg"><div class="caption">Squidddy</div></div>
-<div class="item children"><img src="images/children/tree_frog.jpeg"><div class="caption">Tree Frog</div></div>
+
 <div class="item children"><img src="images/children/urgh_urgh.jpeg"><div class="caption">Urgh Urgh</div></div>
-<div class="item children"><img src="images/children/victory_is_mine.jpeg"><div class="caption">Victory Is Mine</div></div>
+
 <div class="item children"><img src="images/children/whos_that_handsome_man.jpeg"><div class="caption">Who's That Handsome Man</div></div>
+
 <div class="item children"><img src="images/children/why_did_the_chicken_cross_the_road.jpeg"><div class="caption">Why Did The Chicken Cross The Road?</div></div>
 
 </div>
 
-<footer>© 2025 Molly’s Art. All Rights Reserved.</footer>
+<footer>
+    © 2025 Molly’s Art. All Rights Reserved.
+</footer>
 
 <script>
 function filterItems(category) {
-    document.querySelectorAll('.item').forEach(item => {
-        item.style.display = (category === 'all' || item.classList.contains(category))
-            ? 'block'
-            : 'none';
+    const items = document.querySelectorAll('.item');
+    items.forEach(item => {
+        item.style.display =
+            (category === "all" || item.classList.contains(category))
+            ? "block"
+            : "none";
     });
 }
 
