@@ -1,160 +1,256 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
+<meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Molly’s Art Gallery</title>
 
-<!-- SEO -->
-<meta name="description" content="Explore the artwork of Molly — a visual gallery showcasing paintings suitable for children and mature audiences.">
-<link rel="canonical" href="https://mollysart.github.io/">
+<title>Molly’s Art Gallery – Premium Collection</title>
+<meta name="description" content="Explore Molly’s expressive, unique canvas paintings across children-safe and mature categories. Premium art gallery layout.">
 
-<!-- STYLES -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
 <style>
-    :root {
-        --bg: #f4f4f4;
-        --card-bg: #fff;
-        --text: #1a1a1a;
-        --muted: #555;
-        --radius: 18px;
-        --shadow: 0 6px 22px rgba(0,0,0,0.12);
-        --accent: #6a4bff;
-        --accent-soft: #efeaff;
-    }
 
-    body {
-        margin: 0;
-        font-family: Arial, Helvetica, sans-serif;
-        background: var(--bg);
-        color: var(--text);
-    }
+/* ---------------------------
+   THEME / BASE
+--------------------------- */
 
-    header {
-        text-align: center;
-        padding: 40px 20px;
-        background: var(--accent);
-        color: white;
-    }
+:root {
+    --bg: #f5f5f8;
+    --text: #111;
+    --card-bg: #fff;
+    --accent: #6a4bff;
+    --muted: #666;
 
-    header h1 {
-        margin: 0;
-        font-size: 2.4rem;
-    }
+    --radius: 18px;
+    --shadow: 0 8px 26px rgba(0,0,0,0.12);
+}
 
-    header p {
-        font-size: 1.1rem;
-        opacity: 0.9;
-    }
+/* Dark mode toggle styles */
+body.dark {
+    --bg: #121212;
+    --text: #f2f2f2;
+    --card-bg: #1e1e1e;
+    --muted: #bbb;
+    --accent: #9f83ff;
+}
 
-    .section {
-        padding: 40px 20px;
-        max-width: 1100px;
-        margin: auto;
-    }
+body {
+    margin: 0;
+    background: var(--bg);
+    font-family: 'Poppins', sans-serif;
+    color: var(--text);
+    transition: background 0.3s, color 0.3s;
+}
 
-    .section h2 {
-        font-size: 1.8rem;
-        margin-bottom: 15px;
-        color: var(--accent);
-    }
+/* ---------------------------
+   HEADER
+--------------------------- */
 
-    .gallery {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-        gap: 18px;
-    }
+header {
+    text-align: center;
+    padding: 50px 20px 40px;
+}
 
-    .card {
-        background: var(--card-bg);
-        border-radius: var(--radius);
-        box-shadow: var(--shadow);
-        overflow: hidden;
-        transition: transform 0.25s ease;
-    }
+header h1 {
+    margin: 0;
+    font-size: 2.7rem;
+    font-weight: 600;
+}
 
-    .card:hover {
-        transform: scale(1.03);
-    }
+header p {
+    font-size: 1.15rem;
+    color: var(--muted);
+}
 
-    .card img {
-        width: 100%;
-        display: block;
-        height: 280px;
-        object-fit: cover;
-    }
+/* ---------------------------
+   FILTER BUTTONS
+--------------------------- */
 
-    .caption {
-        padding: 12px 16px;
-        font-size: 0.95rem;
-        color: var(--muted);
-    }
+.filters {
+    text-align: center;
+    margin: 25px 0 40px;
+}
 
-    footer {
-        text-align: center;
-        padding: 25px;
-        color: var(--muted);
-    }
+.filters button {
+    padding: 10px 22px;
+    margin: 5px;
+    border: none;
+    background: var(--accent);
+    color: #fff;
+    border-radius: var(--radius);
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: 0.25s;
+}
 
-    @media (max-width: 600px) {
-        header h1 { font-size: 1.8rem; }
-        .card img { height: 220px; }
+.filters button:hover {
+    opacity: 0.85;
+}
+
+.filters button.inactive {
+    background: var(--muted);
+}
+
+/* ---------------------------
+   DARK MODE TOGGLE
+--------------------------- */
+
+.dark-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: var(--accent);
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: var(--radius);
+    cursor: pointer;
+    font-size: 0.85rem;
+    box-shadow: var(--shadow);
+    z-index: 99;
+    transition: 0.3s;
+}
+
+.dark-toggle:hover {
+    opacity: 0.9;
+}
+
+/* ---------------------------
+   GALLERY (MASONRY)
+--------------------------- */
+
+.gallery {
+    column-count: 3;
+    column-gap: 18px;
+    padding: 0 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+@media (max-width: 900px) {
+    .gallery { column-count: 2; }
+}
+
+@media (max-width: 600px) {
+    .gallery { column-count: 1; }
+}
+
+.item {
+    margin-bottom: 18px;
+    break-inside: avoid;
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 0.6s ease forwards;
+}
+
+.item img {
+    width: 100%;
+    display: block;
+    border-bottom: 1px solid #0001;
+    object-fit: cover;
+}
+
+.item .caption {
+    padding: 14px;
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+/* Fade animation */
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
+}
+
+footer {
+    margin: 40px 0 50px;
+    text-align: center;
+    color: var(--muted);
+}
+
 </style>
 </head>
 
 <body>
 
+<div class="dark-toggle" onclick="toggleDarkMode()">🌙 Dark Mode</div>
+
 <header>
     <h1>Molly’s Art Gallery</h1>
-    <p>A curated collection of expressive canvas paintings</p>
+    <p>A premium visual collection of expressive canvas artwork</p>
 </header>
 
-<!-- SUITABLE FOR CHILDREN -->
-<section class="section">
-    <h2>🟢 Suitable for Children</h2>
-    <div class="gallery">
+<!-- FILTER BUTTONS -->
+<div class="filters">
+    <button onclick="filterItems('all')">All</button>
+    <button onclick="filterItems('children')">Children</button>
+    <button onclick="filterItems('mature')">Mature</button>
+</div>
 
-        <!-- Example placeholders — replace with real image names -->
-        <!-- Upload images into: images/children/ (example: images/children/painting1.jpg) -->
-        <div class="card">
-            <img src="images/children/sample1.jpg" alt="Children-friendly artwork">
-            <div class="caption">Artwork Title</div>
-        </div>
+<!-- GALLERY -->
+<div class="gallery">
 
-        <div class="card">
-            <img src="images/children/sample2.jpg" alt="Children-friendly artwork">
-            <div class="caption">Artwork Title</div>
-        </div>
-
+    <!-- CHILDREN EXAMPLES -->
+    <div class="item children">
+        <img src="images/children/sample1.jpg" loading="lazy" alt="Children friendly art">
+        <div class="caption">Children-safe artwork</div>
     </div>
-</section>
 
-<!-- MATURE / NOT SUITABLE FOR CHILDREN -->
-<section class="section">
-    <h2>🔴 Not Suitable for Children</h2>
-    <p style="margin-bottom: 25px; color: var(--muted);">
-        Includes smoking, drug-related, or mature-themed artwork.
-    </p>
-
-    <div class="gallery">
-
-        <!-- Upload images into: images/mature/ -->
-        <div class="card">
-            <img src="images/mature/sample1.jpg" alt="Mature-themed artwork">
-            <div class="caption">Artwork Title</div>
-        </div>
-
-        <div class="card">
-            <img src="images/mature/sample2.jpg" alt="Mature-themed artwork">
-            <div class="caption">Artwork Title</div>
-        </div>
-
+    <div class="item children">
+        <img src="images/children/sample2.jpg" loading="lazy" alt="Children friendly art">
+        <div class="caption">Children-safe artwork</div>
     </div>
-</section>
+
+    <!-- MATURE EXAMPLES -->
+    <div class="item mature">
+        <img src="images/mature/sample1.jpg" loading="lazy" alt="Mature themed art">
+        <div class="caption">Mature artwork</div>
+    </div>
+
+    <div class="item mature">
+        <img src="images/mature/sample2.jpg" loading="lazy" alt="Mature themed art">
+        <div class="caption">Mature artwork</div>
+    </div>
+
+</div>
 
 <footer>
-    © 2025 Molly’s Art. All rights reserved.
+    © 2025 Molly’s Art. All Rights Reserved.
 </footer>
+
+<script>
+/* ---------------------------
+   FILTERING FUNCTION
+--------------------------- */
+function filterItems(category) {
+    const items = document.querySelectorAll('.item');
+    items.forEach(item => {
+        if (category === 'all') {
+            item.style.display = 'block';
+        } else {
+            item.style.display = item.classList.contains(category) ? 'block' : 'none';
+        }
+    });
+
+    const buttons = document.querySelectorAll(".filters button");
+    buttons.forEach(btn => btn.classList.remove("inactive"));
+}
+
+/* ---------------------------
+   DARK MODE
+--------------------------- */
+function toggleDarkMode() {
+    document.body.classList.toggle("dark");
+}
+</script>
 
 </body>
 </html>
