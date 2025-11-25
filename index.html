@@ -69,7 +69,6 @@ header p {
     z-index: 99;
 }
 
-/* Masonry layout */
 .gallery {
     column-count: 3;
     column-gap: 22px;
@@ -108,24 +107,21 @@ header p {
     font-weight: 500;
 }
 
-/* UV Badge */
+/* UV badge */
 .uv-badge {
     position: absolute;
-    top: 8px;
-    left: 8px;
-    background: #ff00c8d0;
-    color: #fff;
-    padding: 5px 10px;
-    border-radius: 12px;
+    top: 10px;
+    left: 10px;
+    background: rgba(123,92,255,0.9);
+    color: white;
+    padding: 6px 12px;
     font-size: 0.75rem;
-    pointer-events: none;
-    opacity: 0;
-    transition: opacity 0.2s ease;
+    border-radius: 12px;
+    z-index: 2;
 }
 
-/* Reveal when UV mode active */
-.uv-active .uv-badge {
-    opacity: 1;
+.fade {
+    opacity: 0;
 }
 
 @keyframes fadeIn {
@@ -145,65 +141,92 @@ header p {
 
 <div class="gallery">
 
-<!-- NON-UV ADULT ART -->
-<div class="item"><img loading="lazy" src="images/18/can_you_feel_it_yet_mr_krabs.jpeg"><div class="caption">Can You Feel It Mr Krabs</div></div>
-<div class="item"><img loading="lazy" src="images/18/away_from_bikini_bottom.jpeg"><div class="caption">Away From Bikini Bottom</div></div>
-<div class="item"><img loading="lazy" src="images/18/999_till_the_world_blow.jpeg"><div class="caption">999 Till The World Blow</div></div>
-<div class="item"><img loading="lazy" src="images/18/cheeky_devil.jpeg"><div class="caption">Cheeky Devil</div></div>
-<div class="item"><img loading="lazy" src="images/18/squiddy.jpeg"><div class="caption">Squiddy</div></div>
-<div class="item"><img loading="lazy" src="images/18/squiddy_pie.jpeg"><div class="caption">Squiddy Pie</div></div>
-<div class="item"><img loading="lazy" src="images/18/the_devil_in_gods_hands.jpeg"><div class="caption">The Devil In Gods Hands</div></div>
-<div class="item"><img loading="lazy" src="images/18/the_stoned_age.jpeg"><div class="caption">The Stoned Age</div></div>
-<div class="item"><img loading="lazy" src="images/18/scooby_who.jpeg"><div class="caption">Scooby Who?</div></div>
-<div class="item"><img loading="lazy" src="images/18/scooby_crew_where_are_you.jpeg"><div class="caption">Scooby Crew, Where Are You?</div></div>
-<div class="item"><img loading="lazy" src="images/18/gaylien_invaders.jpeg"><div class="caption">Gay-lien Invaders</div></div>
-<div class="item"><img loading="lazy" src="images/18/poobob.jpeg"><div class="caption">Poobob</div></div>
-<div class="item"><img loading="lazy" src="images/18/garys_butt.jpeg"><div class="caption">Garys Butt</div></div>
+<!-- 🔥 NON-UV ARTWORKS (auto-generated, no repeats) -->
 
-<!-- UV PAIRS (ADULT) -->
-<div class="item uv-pair" data-images='[
-    "images/18/aint_mushroom_in_here_uv_activated_off.jpeg",
-    "images/18/aint_mushroom_in_here_uv_activated_on.jpeg"
-]'>
-    <span class="uv-badge">UV MODE</span>
-    <img loading="lazy" src="images/18/aint_mushroom_in_here_uv_activated_off.jpeg" class="swap-img">
+<div class="item"><img loading="lazy" src="images/999_till_the_world_blow.jpeg"><div class="caption">999 Till The World Blow</div></div>
+<div class="item"><img loading="lazy" src="images/anybody_there.jpeg"><div class="caption">Anybody There?</div></div>
+<div class="item"><img loading="lazy" src="images/away_from_bikini_bottom.jpeg"><div class="caption">Away From Bikini Bottom</div></div>
+<div class="item"><img loading="lazy" src="images/badass.jpeg"><div class="caption">Badass</div></div>
+<div class="item"><img loading="lazy" src="images/buttered_toast.jpeg"><div class="caption">Buttered Toast</div></div>
+<div class="item"><img loading="lazy" src="images/can_you_feel_it_yet_mr_krabs.jpeg"><div class="caption">Can You Feel It Mr Krabs?</div></div>
+<div class="item"><img loading="lazy" src="images/cheeky_devil.jpeg"><div class="caption">Cheeky Devil</div></div>
+<div class="item"><img loading="lazy" src="images/derek_n_dorris.jpeg"><div class="caption">Derek 'n Dorris</div></div>
+<div class="item"><img loading="lazy" src="images/dont_disturb_sandy_cheeks.jpeg"><div class="caption">Don't Disturb Sandy Cheeks</div></div>
+<div class="item"><img loading="lazy" src="images/encourage_courage.jpeg"><div class="caption">Encourage Courage</div></div>
+<div class="item"><img loading="lazy" src="images/frog.jpeg"><div class="caption">Frog</div></div>
+<div class="item"><img loading="lazy" src="images/garys_butt.jpeg"><div class="caption">Gary’s Butt</div></div>
+<div class="item"><img loading="lazy" src="images/gaylien_invaders.jpeg"><div class="caption">Gaylien Invaders</div></div>
+<div class="item"><img loading="lazy" src="images/hippie_camper.jpeg"><div class="caption">Hippie Camper</div></div>
+<div class="item"><img loading="lazy" src="images/hippie_leaf.jpeg"><div class="caption">Hippie Leaf</div></div>
+<div class="item"><img loading="lazy" src="images/johnny_has_guns.jpeg"><div class="caption">Johnny Has Guns</div></div>
+<div class="item"><img loading="lazy" src="images/lego_spongebob.jpeg"><div class="caption">Lego Spongebob</div></div>
+<div class="item"><img loading="lazy" src="images/lost_in_space.jpeg"><div class="caption">Lost In Space</div></div>
+<div class="item"><img loading="lazy" src="images/masterpiece.jpeg"><div class="caption">Masterpiece</div></div>
+<div class="item"><img loading="lazy" src="images/not_again.jpeg"><div class="caption">Not Again</div></div>
+<div class="item"><img loading="lazy" src="images/poobob.jpeg"><div class="caption">Poobob</div></div>
+<div class="item"><img loading="lazy" src="images/portal_of_hell.jpeg"><div class="caption">Portal of Hell</div></div>
+<div class="item"><img loading="lazy" src="images/sandy_bottom.jpeg"><div class="caption">Sandy Bottom</div></div>
+<div class="item"><img loading="lazy" src="images/scooby_crew_where_are_you.jpeg"><div class="caption">Scooby Crew – Where Are You?</div></div>
+<div class="item"><img loading="lazy" src="images/scooby_who.jpeg"><div class="caption">Scooby Who?</div></div>
+<div class="item"><img loading="lazy" src="images/so_handsome.jpeg"><div class="caption">So Handsome</div></div>
+<div class="item"><img loading="lazy" src="images/squiddy.jpeg"><div class="caption">Squiddy</div></div>
+<div class="item"><img loading="lazy" src="images/squiddy_pie.jpeg"><div class="caption">Squiddy Pie</div></div>
+<div class="item"><img loading="lazy" src="images/sun_sponge.jpeg"><div class="caption">Sun Sponge</div></div>
+<div class="item"><img loading="lazy" src="images/take_me_back.jpeg"><div class="caption">Take Me Back</div></div>
+<div class="item"><img loading="lazy" src="images/the_devil_in_gods_hands.jpeg"><div class="caption">The Devil In God’s Hands</div></div>
+<div class="item"><img loading="lazy" src="images/the_stoned_age.jpeg"><div class="caption">The Stoned Age</div></div>
+<div class="item"><img loading="lazy" src="images/urgh_urgh.jpeg"><div class="caption">Urgh Urgh</div></div>
+<div class="item"><img loading="lazy" src="images/victory_is_mine.jpeg"><div class="caption">Victory Is Mine</div></div>
+<div class="item"><img loading="lazy" src="images/why_did_the_chicken_cross_the_road.jpeg"><div class="caption">Why Did The Chicken Cross The Road?</div></div>
+
+<!-- 🔥 UV-ENABLED ARTWORKS (with badges & toggles) -->
+
+<!-- 999 Till The World Blow -->
+<div class="item uv-pair" data-images='["images/999_till_the_world_blow.jpeg","images/999_till_the_world_blow_uv.jpeg"]'>
+    <div class="uv-badge">UV Mode</div>
+    <img class="swap-img" loading="lazy" src="images/999_till_the_world_blow.jpeg">
+    <div class="caption">999 Till The World Blow (UV)</div>
+</div>
+
+<div class="item uv-pair" data-images='["images/aint_mushroom_in_here_(uv_activated_off).jpeg","images/aint_mushroom_in_here_(uv_activated).jpeg"]'>
+    <div class="uv-badge">UV Mode</div>
+    <img class="swap-img" loading="lazy" src="images/aint_mushroom_in_here_(uv_activated_off).jpeg">
     <div class="caption">Ain't Mushroom In Here</div>
 </div>
 
-<div class="item uv-pair" data-images='[
-    "images/18/khaos_uv_activated_off.jpeg",
-    "images/18/khaos_uv_activated_on.jpeg"
-]'>
-    <span class="uv-badge">UV MODE</span>
-    <img loading="lazy" src="images/18/khaos_uv_activated_off.jpeg" class="swap-img">
+<div class="item uv-pair" data-images='["images/khaos_(uv_activated).jpeg","images/khaos_(uv_activated_on).jpeg"]'>
+    <div class="uv-badge">UV Mode</div>
+    <img class="swap-img" loading="lazy" src="images/khaos_(uv_activated).jpeg">
     <div class="caption">Khaos</div>
 </div>
 
-<div class="item uv-pair" data-images='[
-    "images/18/rortal_uv_activated_off.jpeg",
-    "images/18/rortal_uv_activated_on.jpeg"
-]'>
-    <span class="uv-badge">UV MODE</span>
-    <img loading="lazy" src="images/18/rortal_uv_activated_off.jpeg" class="swap-img">
+<div class="item uv-pair" data-images='["images/light_up_the_sky_(uv_activated).jpeg","images/light_up_the_sky_(uv_activated_on).jpeg"]'>
+    <div class="uv-badge">UV Mode</div>
+    <img class="swap-img" loading="lazy" src="images/light_up_the_sky_(uv_activated).jpeg">
+    <div class="caption">Light Up The Sky</div>
+</div>
+
+<div class="item uv-pair" data-images='["images/rortal_(uv_activated_off).jpeg","images/rortal_(uv_activated_on).jpeg"]'>
+    <div class="uv-badge">UV Mode</div>
+    <img class="swap-img" loading="lazy" src="images/rortal_(uv_activated_off).jpeg">
     <div class="caption">Rortal</div>
 </div>
 
-<!-- CHILD NON-UV -->
-<div class="item"><img loading="lazy" src="images/children/buttered_toast.jpeg"><div class="caption">Buttered Toast</div></div>
-<div class="item"><img loading="lazy" src="images/children/sandy_bottom.jpeg"><div class="caption">Sandy Bottom</div></div>
-<div class="item"><img loading="lazy" src="images/children/derek_n_dorris.jpeg"><div class="caption">Derek 'n Dorris</div></div>
-<div class="item"><img loading="lazy" src="images/children/encourage_courage.jpeg"><div class="caption">Encourage Courage</div></div>
-<div class="item"><img loading="lazy" src="images/children/frog.jpeg"><div class="caption">Tree Frog</div></div>
-<div class="item"><img loading="lazy" src="images/children/lost_in_space.jpeg"><div class="caption">Lost In Space</div></div>
-<div class="item"><img loading="lazy" src="images/children/masterpiece.jpeg"><div class="caption">Masterpiece</div></div>
-<div class="item"><img loading="lazy" src="images/children/urgh_urgh.jpeg"><div class="caption">Urgh Urgh</div></div>
-<div class="item"><img loading="lazy" src="images/children/not_again.jpeg"><div class="caption">Not Again</div></div>
-<div class="item"><img loading="lazy" src="images/children/portal_of_hell.jpeg"><div class="caption">Portal Of Hell</div></div>
-<div class="item"><img loading="lazy" src="images/children/why_did_the_chicken_cross_the_road.jpeg"><div class="caption">Why Did The Chicken Cross The Road?</div></div>
+<div class="item uv-pair" data-images='["images/rainbow_drop.jpeg","images/rainbow_drop_uv.jpeg"]'>
+    <div class="uv-badge">UV Mode</div>
+    <img class="swap-img" loading="lazy" src="images/rainbow_drop.jpeg">
+    <div class="caption">Rainbow Drop</div>
+</div>
+
+<div class="item uv-pair" data-images='["images/tri_angles.jpeg","images/tri_angles_uv.jpeg"]'>
+    <div class="uv-badge">UV Mode</div>
+    <img class="swap-img" loading="lazy" src="images/tri_angles.jpeg">
+    <div class="caption">Tri Angles</div>
+</div>
 
 </div>
 
-<footer>
+<footer style="text-align:center;padding:40px 0 60px;color:var(--muted);">
     © 2025 Molly’s Art. All Rights Reserved.
 </footer>
 
@@ -212,44 +235,48 @@ function toggleDarkMode() {
     document.body.classList.toggle("dark");
 }
 
-// ---- UV Toggle + Fade + Swipe + Preload ----
+// Preload UV ON images (so toggle is instant)
+document.querySelectorAll(".uv-pair").forEach(p => {
+    const imgs = JSON.parse(p.dataset.images);
+    const preload = new Image();
+    preload.src = imgs[1];
+});
+
+// UV logic: tap + swipe
 document.querySelectorAll('.uv-pair').forEach(card => {
     const imgs = JSON.parse(card.dataset.images);
     let index = 0;
 
     const imgElement = card.querySelector('.swap-img');
-    const badge = card.querySelector('.uv-badge');
 
-    // Preload second UV image
-    const preload = new Image();
-    preload.src = imgs[1];
-
-    // Tap toggle
+    // tap
     imgElement.addEventListener('click', () => {
-        card.classList.add("uv-active");
-        fadeSwap();
-    });
-
-    // Swipe toggle
-    let startX = 0;
-    imgElement.addEventListener('touchstart', e => {
-        startX = e.touches[0].clientX;
-    });
-    imgElement.addEventListener('touchend', e => {
-        if (Math.abs(e.changedTouches[0].clientX - startX) > 30) {
-            card.classList.add("uv-active");
-            fadeSwap();
-        }
-    });
-
-    function fadeSwap() {
-        imgElement.style.opacity = 0;
+        imgElement.classList.add("fade");
         setTimeout(() => {
             index = (index + 1) % imgs.length;
             imgElement.src = imgs[index];
-            imgElement.style.opacity = 1;
-        }, 200);
-    }
+            imgElement.classList.remove("fade");
+        }, 150);
+    });
+
+    // swipe
+    let startX = 0;
+
+    imgElement.addEventListener('touchstart', e => {
+        startX = e.touches[0].clientX;
+    });
+
+    imgElement.addEventListener('touchend', e => {
+        let endX = e.changedTouches[0].clientX;
+        if (Math.abs(endX - startX) > 40) {
+            imgElement.classList.add("fade");
+            setTimeout(() => {
+                index = (index + 1) % imgs.length;
+                imgElement.src = imgs[index];
+                imgElement.classList.remove("fade");
+            }, 150);
+        }
+    });
 });
 </script>
 
