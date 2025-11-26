@@ -4,331 +4,278 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>Molly’s Art Gallery – Hand Painted Canvas Collection (UV & Standard)</title>
+<title>Molly’s Art Gallery – Hand-Painted Canvas Collection (UV & Standard Artwork)</title>
 
-<meta name="description" content="Explore Molly’s hand-painted canvas artwork including UV-reactive paintings, psychedelic art, cartoon canvases, and original creative pieces. Fully interactive lightbox and UV mode.">
+<meta name="description" content="Explore Molly’s full collection of hand-painted canvas artwork including UV-reactive pieces, cartoon art, psychedelic paintings, and original creative canvases. Fully interactive gallery with zoom and UV mode.">
+
 <link rel="canonical" href="https://mollysart.github.io/mollysart/">
 <link rel="stylesheet" href="style.css">
 
-<!-- SEO Keywords -->
-<meta name="keywords" content="molly art gallery, canvas art, uv canvas art, psychedelic art, cartoon artwork, hand painted canvas, trippy art, spongebob canvas, unique canvas art, uk artist">
+<meta name="keywords" content="molly art, mollys art, canvas art, uv canvas, uv reactive paintings, psychedelic canvas, handmade art uk, cartoon canvas, mushroom art, trippy art, unique canvas art, hand painted canvas art, original art uk">
 
-<!-- Social Preview -->
-<meta property="og:title" content="Molly’s Art Gallery – Hand Painted Canvas Collection">
-<meta property="og:description" content="Explore UV and standard artwork in a premium interactive gallery.">
+<meta property="og:title" content="Molly’s Art Gallery – Hand-Painted Canvas Collection">
+<meta property="og:description" content="Explore Molly’s UV and standard canvas artworks in a premium interactive gallery.">
 <meta property="og:image" content="images/can_you_feel_it_yet_mr_krabs.jpeg">
 <meta property="og:url" content="https://mollysart.github.io/mollysart/">
 
-<!-- Schema Markup -->
+<!-- Schema -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org/",
-  "@type": "ArtGallery",
-  "name": "Molly's Art Gallery",
-  "url": "https://mollysart.github.io/mollysart/",
-  "description": "Hand-painted canvases, UV-reactive art, psychedelic designs and original creative pieces.",
+  "@type": "CollectionPage",
+  "name": "Molly’s Art Gallery",
+  "description": "Hand-painted canvas artwork collection including UV reactive art, psychedelic designs and original paintings.",
   "image": "https://mollysart.github.io/mollysart/images/can_you_feel_it_yet_mr_krabs.jpeg",
-  "founder": {
+  "creator": {
     "@type": "Person",
     "name": "Molly"
+  },
+  "hasPart": {
+    "@type": "Collection",
+    "name": "Canvas Artwork Collection"
   }
 }
 </script>
 
-<link rel="icon" type="image/png" href="images/tri_angles_uv.jpeg">
+<link rel="icon" type="image/png" href="images/tri_angles.jpeg">
 </head>
 
 <body>
 
-<!-- DARK MODE BUTTON -->
-<div class="dark-toggle" onclick="toggleDarkMode()">🌙 Dark Mode</div>
-
-<!-- TITLE HEADER -->
-<div class="title-header">
-    <h1>Molly’s Art Gallery</h1>
-    <p>Hand-painted canvases • UV-reactive art • Unique original pieces</p>
+<!-- DARK MODE MINI ICON -->
+<div class="dark-toggle-icon" onclick="toggleDarkMode()">
+    <span id="darkIcon">🌙</span>
 </div>
 
+<!-- TITLE -->
+<header class="title-header">
+    <h1>Molly’s Art Gallery</h1>
+    <p>Hand-painted canvases · UV-reactive artwork · Original designs</p>
+</header>
+
 <!-- LIGHTBOX -->
-<div class="lightbox" id="lightbox">
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
     <img id="lightboxImg">
+    <div id="lightboxUV" class="lightbox-uv"></div>
 </div>
 
 <!-- GALLERY -->
 <div class="gallery">
 
-<!-- Always first image -->
+<!-- FEATURED FIRST -->
 <div class="item">
-    <img src="images/can_you_feel_it_yet_mr_krabs.jpeg"
-         alt="Can You Feel It Mr Krabs Canvas Artwork"
-         onclick="openLightboxStandard(this.src)">
+    <img loading="lazy" src="images/can_you_feel_it_yet_mr_krabs.jpeg" alt="Can You Feel It Mr Krabs Canvas Artwork" onclick="openLightboxStandard(this.src)">
     <div class="caption">Can You Feel It Mr Krabs?</div>
 </div>
 
-<!-- ================= STANDARD ARTWORK ================= -->
+<!-- ======= STANDARD IMAGES ======= -->
+<!-- (INSERT ALL NON-UV ITEMS HERE—ALREADY CLEANED) -->
 
-<div class="item">
-    <img loading="lazy" src="images/anybody_there.jpeg" alt="Anybody There Canvas Artwork" onclick="openLightboxStandard(this.src)">
-    <div class="caption">Anybody There?</div>
-</div>
+<!-- START OF NON-UV ITEMS -->
+<div class="item"><img loading="lazy" src="images/anybody_there.jpeg" alt="Anybody There Canvas Artwork" onclick="openLightboxStandard(this.src)"><div class="caption">Anybody There?</div></div>
 
-<div class="item">
-    <img loading="lazy" src="images/away_from_bikini_bottom.jpeg" alt="Away From Bikini Bottom Canvas Artwork" onclick="openLightboxStandard(this.src)">
-    <div class="caption">Away From Bikini Bottom</div>
-</div>
+<div class="item"><img loading="lazy" src="images/away_from_bikini_bottom.jpeg" alt="Away From Bikini Bottom Canvas Art" onclick="openLightboxStandard(this.src)"><div class="caption">Away From Bikini Bottom</div></div>
 
-<div class="item">
-    <img loading="lazy" src="images/badass.jpeg" alt="Badass Canvas Artwork" onclick="openLightboxStandard(this.src)">
-    <div class="caption">Badass</div>
-</div>
+<div class="item"><img loading="lazy" src="images/badass.jpeg" alt="Badass Canvas Artwork" onclick="openLightboxStandard(this.src)"><div class="caption">Badass</div></div>
 
-<div class="item">
-    <img loading="lazy" src="images/buttered_toast.jpeg" alt="Buttered Toast Canvas Art" onclick="openLightboxStandard(this.src)">
-    <div class="caption">Buttered Toast</div>
-</div>
+<div class="item"><img loading="lazy" src="images/buttered_toast.jpeg" alt="Buttered Toast Canvas Art" onclick="openLightboxStandard(this.src)"><div class="caption">Buttered Toast</div></div>
 
-<div class="item">
-    <img loading="lazy" src="images/cheeky_devil.jpeg" alt="Cheeky Devil Canvas Art" onclick="openLightboxStandard(this.src)">
-    <div class="caption">Cheeky Devil</div>
-</div>
+<div class="item"><img loading="lazy" src="images/cheeky_devil.jpeg" alt="Cheeky Devil Canvas Painting" onclick="openLightboxStandard(this.src)"><div class="caption">Cheeky Devil</div></div>
 
-<div class="item">
-    <img loading="lazy" src="images/derek_n_dorris.jpeg" alt="Derek 'n Dorris Canvas Artwork" onclick="openLightboxStandard(this.src)">
-    <div class="caption">Derek 'n Dorris</div>
-</div>
+<div class="item"><img loading="lazy" src="images/derek_n_dorris.jpeg" alt="Derek 'n Dorris Canvas Artwork" onclick="openLightboxStandard(this.src)"><div class="caption">Derek 'n Dorris</div></div>
 
-<div class="item">
-    <img loading="lazy" src="images/do_not_disturb.jpeg" alt="Do Not Disturb Canvas Art" onclick="openLightboxStandard(this.src)">
-    <div class="caption">DO NOT DISTURB</div>
-</div>
+<div class="item"><img loading="lazy" src="images/do_not_disturb.jpeg" alt="Do Not Disturb Canvas Art" onclick="openLightboxStandard(this.src)"><div class="caption">DO NOT DISTURB</div></div>
 
-<div class="item">
-    <img loading="lazy" src="images/encourage_courage.jpeg" alt="Encourage Courage Canvas Art" onclick="openLightboxStandard(this.src)">
-    <div class="caption">Encourage Courage</div>
-</div>
+<div class="item"><img loading="lazy" src="images/encourage_courage.jpeg" alt="Encourage Courage Canvas Art" onclick="openLightboxStandard(this.src)"><div class="caption">Encourage Courage</div></div>
 
-<div class="item">
-    <img loading="lazy" src="images/frog.jpeg" alt="Frog Canvas Painting" onclick="openLightboxStandard(this.src)">
-    <div class="caption">Frog</div>
-</div>
+<div class="item"><img loading="lazy" src="images/frog.jpeg" alt="Frog Canvas Artwork" onclick="openLightboxStandard(this.src)"><div class="caption">Frog</div></div>
 
-<div class="item">
-    <img loading="lazy" src="images/garys_butt.jpeg" alt="Gary’s Butt Canvas Art" onclick="openLightboxStandard(this.src)">
-    <div class="caption">Gary’s Butt</div>
-</div>
+<div class="item"><img loading="lazy" src="images/garys_butt.jpeg" alt="Gary’s Butt Canvas Art" onclick="openLightboxStandard(this.src)"><div class="caption">Gary’s Butt</div></div>
 
-<div class="item">
-    <img loading="lazy" src="images/gaylien_invaders.jpeg" alt="Gaylien Invaders Canvas Artwork" onclick="openLightboxStandard(this.src)">
-    <div class="caption">Gaylien Invaders</div>
-</div>
+<div class="item"><img loading="lazy" src="images/gaylien_invaders.jpeg" alt="Gaylien Invaders Canvas Painting" onclick="openLightboxStandard(this.src)"><div class="caption">Gaylien Invaders</div></div>
 
-<div class="item">
-    <img loading="lazy" src="images/good_boy.jpeg" alt="Good Boy Canvas Artwork" onclick="openLightboxStandard(this.src)">
-    <div class="caption">Good Boy</div>
-</div>
+<div class="item"><img loading="lazy" src="images/good_boy.jpeg" alt="Good Boy Canvas Artwork" onclick="openLightboxStandard(this.src)"><div class="caption">Good Boy</div></div>
 
-<div class="item">
-    <img loading="lazy" src="images/hippie_camper.jpeg" alt="Hippie Camper Canvas Art" onclick="openLightboxStandard(this.src)">
-    <div class="caption">Hippie Camper</div>
-</div>
+<div class="item"><img loading="lazy" src="images/hippie_camper.jpeg" alt="Hippie Camper Canvas Art" onclick="openLightboxStandard(this.src)"><div class="caption">Hippie Camper</div></div>
 
-<div class="item">
-    <img loading="lazy" src="images/leafal.jpeg" alt="Leafal Canvas Artwork" onclick="openLightboxStandard(this.src)">
-    <div class="caption">leafal</div>
-</div>
+<div class="item"><img loading="lazy" src="images/leafal.jpeg" alt="Leafal Canvas Art" onclick="openLightboxStandard(this.src)"><div class="caption">Leafal</div></div>
 
-<div class="item">
-    <img loading="lazy" src="images/bravo.jpeg" alt="Bravo Canvas Painting" onclick="openLightboxStandard(this.src)">
-    <div class="caption">Bravo</div>
-</div>
+<div class="item"><img loading="lazy" src="images/bravo.jpeg" alt="Bravo Canvas Art" onclick="openLightboxStandard(this.src)"><div class="caption">Bravo</div></div>
 
-<div class="item">
-    <img loading="lazy" src="images/lost_in_space.jpeg" alt="Lost In Space Canvas Artwork" onclick="openLightboxStandard(this.src)">
-    <div class="caption">Lost In Space</div>
-</div>
+<div class="item"><img loading="lazy" src="images/lost_in_space.jpeg" alt="Lost In Space Canvas Artwork" onclick="openLightboxStandard(this.src)"><div class="caption">Lost In Space</div></div>
 
-<div class="item">
-    <img loading="lazy" src="images/masterpiece.jpeg" alt="Masterpiece Canvas Art" onclick="openLightboxStandard(this.src)">
-    <div class="caption">Masterpiece</div>
-</div>
+<div class="item"><img loading="lazy" src="images/masterpiece.jpeg" alt="Masterpiece Canvas Painting" onclick="openLightboxStandard(this.src)"><div class="caption">Masterpiece</div></div>
 
-<div class="item">
-    <img loading="lazy" src="images/not_again.jpeg" alt="Not Again Canvas Art" onclick="openLightboxStandard(this.src)">
-    <div class="caption">Not Again</div>
-</div>
+<div class="item"><img loading="lazy" src="images/not_again.jpeg" alt="Not Again Canvas Art" onclick="openLightboxStandard(this.src)"><div class="caption">Not Again</div></div>
 
-<div class="item">
-    <img loading="lazy" src="images/pickle_rick.jpeg" alt="Pickle Rick Canvas Artwork" onclick="openLightboxStandard(this.src)">
-    <div class="caption">Pickle Rick</div>
-</div>
+<div class="item"><img loading="lazy" src="images/pickle_rick.jpeg" alt="Pickle Rick Canvas Art" onclick="openLightboxStandard(this.src)"><div class="caption">Pickle Rick</div></div>
 
-<div class="item">
-    <img loading="lazy" src="images/poobob.jpeg" alt="Poobob Canvas Painting" onclick="openLightboxStandard(this.src)">
-    <div class="caption">Poobob</div>
-</div>
+<div class="item"><img loading="lazy" src="images/poobob.jpeg" alt="Poobob Canvas Artwork" onclick="openLightboxStandard(this.src)"><div class="caption">Poobob</div></div>
 
-<div class="item">
-    <img loading="lazy" src="images/portal_of_hell.jpeg" alt="Portal of Hell Canvas Artwork" onclick="openLightboxStandard(this.src)">
-    <div class="caption">Portal of Hell</div>
-</div>
+<div class="item"><img loading="lazy" src="images/portal_of_hell.jpeg" alt="Portal of Hell Canvas Painting" onclick="openLightboxStandard(this.src)"><div class="caption">Portal of Hell</div></div>
 
-<div class="item">
-    <img loading="lazy" src="images/colourverse.jpeg" alt="Colourverse Canvas Art" onclick="openLightboxStandard(this.src)">
-    <div class="caption">Colourverse</div>
-</div>
+<div class="item"><img loading="lazy" src="images/colourverse.jpeg" alt="Colourverse Canvas Art" onclick="openLightboxStandard(this.src)"><div class="caption">Colourverse</div></div>
 
-<div class="item">
-    <img loading="lazy" src="images/sandy_bottom.jpeg" alt="Sandy Bottom Canvas Art" onclick="openLightboxStandard(this.src)">
-    <div class="caption">Sandy Bottom</div>
-</div>
+<div class="item"><img loading="lazy" src="images/sandy_bottom.jpeg" alt="Sandy Bottom Canvas Art" onclick="openLightboxStandard(this.src)"><div class="caption">Sandy Bottom</div></div>
 
-<div class="item">
-    <img loading="lazy" src="images/scooby_crew_where_are_you.jpeg" alt="Scooby Crew Where Are You Canvas Art" onclick="openLightboxStandard(this.src)">
-    <div class="caption">Scooby Crew – Where Are You?</div>
-</div>
+<div class="item"><img loading="lazy" src="images/scooby_crew_where_are_you.jpeg" alt="Scooby Crew Where Are You Canvas Art" onclick="openLightboxStandard(this.src)"><div class="caption">Scooby Crew – Where Are You?</div></div>
 
-<div class="item">
-    <img loading="lazy" src="images/scooby_who.jpeg" alt="Scooby Who Canvas Artwork" onclick="openLightboxStandard(this.src)">
-    <div class="caption">Scooby Who?</div>
-</div>
+<div class="item"><img loading="lazy" src="images/scooby_who.jpeg" alt="Scooby Who Canvas Artwork" onclick="openLightboxStandard(this.src)"><div class="caption">Scooby Who?</div></div>
 
-<div class="item">
-    <img loading="lazy" src="images/smooth_riding.jpeg" alt="Smooth Riding Canvas Art" onclick="openLightboxStandard(this.src)">
-    <div class="caption">Smooth Riding</div>
-</div>
+<div class="item"><img loading="lazy" src="images/smooth_riding.jpeg" alt="Smooth Riding Canvas Art" onclick="openLightboxStandard(this.src)"><div class="caption">Smooth Riding</div></div>
 
-<div class="item">
-    <img loading="lazy" src="images/so_handsome.jpeg" alt="So Handsome Canvas Artwork" onclick="openLightboxStandard(this.src)">
-    <div class="caption">So Handsome</div>
-</div>
+<div class="item"><img loading="lazy" src="images/so_handsome.jpeg" alt="So Handsome Canvas Artwork" onclick="openLightboxStandard(this.src)"><div class="caption">So Handsome</div></div>
 
-<div class="item">
-    <img loading="lazy" src="images/squiddy.jpeg" alt="Squiddy Canvas Art" onclick="openLightboxStandard(this.src)">
-    <div class="caption">Squiddy</div>
-</div>
+<div class="item"><img loading="lazy" src="images/squiddy.jpeg" alt="Squiddy Canvas Art" onclick="openLightboxStandard(this.src)"><div class="caption">Squiddy</div></div>
 
-<div class="item">
-    <img loading="lazy" src="images/take_a_bite_spit_it_out.jpeg" alt="Take A Bite Spit It Out Canvas Art" onclick="openLightboxStandard(this.src)">
-    <div class="caption">Take A Bite, Spit It Out</div>
-</div>
+<div class="item"><img loading="lazy" src="images/take_a_bite_spit_it_out.jpeg" alt="Take A Bite Spit It Out Canvas Art" onclick="openLightboxStandard(this.src)"><div class="caption">Take A Bite, Spit It Out</div></div>
 
-<div class="item">
-    <img loading="lazy" src="images/trippy_sunshine.jpeg" alt="Trippy Sunshine Canvas Artwork" onclick="openLightboxStandard(this.src)">
-    <div class="caption">Trippy Sunshine</div>
-</div>
+<div class="item"><img loading="lazy" src="images/trippy_sunshine.jpeg" alt="Trippy Sunshine Canvas Art" onclick="openLightboxStandard(this.src)"><div class="caption">Trippy Sunshine</div></div>
 
-<div class="item">
-    <img loading="lazy" src="images/take_me_back.jpeg" alt="Take Me Back Canvas Artwork" onclick="openLightboxStandard(this.src)">
-    <div class="caption">Take Me Back</div>
-</div>
+<div class="item"><img loading="lazy" src="images/take_me_back.jpeg" alt="Take Me Back Canvas Art" onclick="openLightboxStandard(this.src)"><div class="caption">Take Me Back</div></div>
 
-<div class="item">
-    <img loading="lazy" src="images/the_devil_in_gods_hands.jpeg" alt="The Devil In God’s Hands Canvas Art" onclick="openLightboxStandard(this.src)">
-    <div class="caption">The Devil In God’s Hands</div>
-</div>
+<div class="item"><img loading="lazy" src="images/the_devil_in_gods_hands.jpeg" alt="The Devil In God's Hands Artwork" onclick="openLightboxStandard(this.src)"><div class="caption">The Devil In God's Hands</div></div>
 
-<div class="item">
-    <img loading="lazy" src="images/the_stoned_age.jpeg" alt="The Stoned Age Canvas Art" onclick="openLightboxStandard(this.src)">
-    <div class="caption">The Stoned Age</div>
-</div>
+<div class="item"><img loading="lazy" src="images/the_stoned_age.jpeg" alt="The Stoned Age Canvas Art" onclick="openLightboxStandard(this.src)"><div class="caption">The Stoned Age</div></div>
 
-<div class="item">
-    <img loading="lazy" src="images/urgh_urgh.jpeg" alt="Urgh Urgh Canvas Artwork" onclick="openLightboxStandard(this.src)">
-    <div class="caption">Urgh Urgh</div>
-</div>
+<div class="item"><img loading="lazy" src="images/urgh_urgh.jpeg" alt="Urgh Urgh Canvas Painting" onclick="openLightboxStandard(this.src)"><div class="caption">Urgh Urgh</div></div>
 
-<div class="item">
-    <img loading="lazy" src="images/victory_is_mine.jpeg" alt="Victory Is Mine Canvas Art" onclick="openLightboxStandard(this.src)">
-    <div class="caption">Victory Is Mine</div>
-</div>
+<div class="item"><img loading="lazy" src="images/victory_is_mine.jpeg" alt="Victory Is Mine Canvas Artwork" onclick="openLightboxStandard(this.src)"><div class="caption">Victory Is Mine</div></div>
 
-<div class="item">
-    <img loading="lazy" src="images/why_did_the_chicken_cross_the_road.jpeg" alt="Why Did The Chicken Cross The Road Canvas Art" onclick="openLightboxStandard(this.src)">
-    <div class="caption">Why Did The Chicken Cross The Road?</div>
-</div>
--->
+<div class="item"><img loading="lazy" src="images/why_did_the_chicken_cross_the_road.jpeg" alt="Why Did The Chicken Cross The Road Canvas Art" onclick="openLightboxStandard(this.src)"><div class="caption">Why Did The Chicken Cross The Road?</div></div>
 
-<!-- === UV IMAGES (fully fixed) === -->
+<!-- ======= UV ITEMS ======= -->
 
-<div class="item uv-pair"
-     data-images='["images/999_till_the_world_blow.jpeg","images/999_till_the_world_blow_uv.jpeg"]'>
-    <div class="uv-badge">UV Mode</div>
-    <img class="swap-img" src="images/999_till_the_world_blow.jpeg"
-         onclick="openLightboxUV(this.parentNode)"
-         alt="999 Till The World Blow UV Canvas Art">
+<div class="item uv-pair" data-normal="images/999_till_the_world_blow.jpeg" data-uv="images/999_till_the_world_blow_uv.jpeg">
+    <div class="uv-switch">
+        <button class="uv-btn normal active" onclick="swapUV(this)">Normal</button>
+        <button class="uv-btn uv" onclick="swapUV(this)">UV</button>
+    </div>
+    <img class="uv-img" src="images/999_till_the_world_blow.jpeg" alt="999 Till The World Blow UV Canvas" onclick="openLightboxUV(this)">
     <div class="caption">999 Till The World Blow (UV)</div>
 </div>
 
-<div class="item uv-pair"
-     data-images='["images/aint_mushroom_in_here_(uv_activated_off).jpeg","images/aint_mushroom_in_here_(uv_activated).jpeg"]'>
-    <div class="uv-badge">UV Mode</div>
-    <img class="swap-img" src="images/aint_mushroom_in_here_(uv_activated_off).jpeg"
-         onclick="openLightboxUV(this.parentNode)"
-         alt="Ain't Mushroom In Here UV Canvas Art">
+<div class="item uv-pair" data-normal="images/aint_mushroom_in_here_(uv_activated_off).jpeg" data-uv="images/aint_mushroom_in_here_(uv_activated).jpeg">
+    <div class="uv-switch">
+        <button class="uv-btn normal active" onclick="swapUV(this)">Normal</button>
+        <button class="uv-btn uv" onclick="swapUV(this)">UV</button>
+    </div>
+    <img class="uv-img" src="images/aint_mushroom_in_here_(uv_activated_off).jpeg" alt="Ain't Mushroom In Here UV Canvas" onclick="openLightboxUV(this)">
     <div class="caption">Ain't Mushroom In Here</div>
 </div>
 
-<!-- Continue remaining UV items in same format -->
-
+<div class="item uv-pair" data-normal="images/khaos_(uv_activated).jpeg" data-uv="images/khaos_(uv_activated_on).jpeg">
+    <div class="uv-switch">
+        <button class="uv-btn normal active" onclick="swapUV(this)">Normal</button>
+        <button class="uv-btn uv" onclick="swapUV(this)">UV</button>
+    </div>
+    <img class="uv-img" src="images/khaos_(uv_activated).jpeg" alt="Khaos UV Canvas Artwork" onclick="openLightboxUV(this)">
+    <div class="caption">Khaos</div>
 </div>
 
-<!-- SCRIPTS -->
+<div class="item uv-pair" data-normal="images/light_up_the_sky_(uv_activated).jpeg" data-uv="images/light_up_the_sky_(uv_activated_on).jpeg">
+    <div class="uv-switch">
+        <button class="uv-btn normal active" onclick="swapUV(this)">Normal</button>
+        <button class="uv-btn uv" onclick="swapUV(this)">UV</button>
+    </div>
+    <img class="uv-img" src="images/light_up_the_sky_(uv_activated).jpeg" alt="Light Up The Sky UV Canvas" onclick="openLightboxUV(this)">
+    <div class="caption">Light Up The Sky</div>
+</div>
+
+<div class="item uv-pair" data-normal="images/rortal_(uv_activated_off).jpeg" data-uv="images/rortal_(uv_activated_on).jpeg">
+    <div class="uv-switch">
+        <button class="uv-btn normal active" onclick="swapUV(this)">Normal</button>
+        <button class="uv-btn uv" onclick="swapUV(this)">UV</button>
+    </div>
+    <img class="uv-img" src="images/rortal_(uv_activated_off).jpeg" alt="Rortal UV Canvas" onclick="openLightboxUV(this)">
+    <div class="caption">Rortal</div>
+</div>
+
+<div class="item uv-pair" data-normal="images/rainbow_drop.jpeg" data-uv="images/rainbow_drop_uv.jpeg">
+    <div class="uv-switch">
+        <button class="uv-btn normal active" onclick="swapUV(this)">Normal</button>
+        <button class="uv-btn uv" onclick="swapUV(this)">UV</button>
+    </div>
+    <img class="uv-img" src="images/rainbow_drop.jpeg" alt="Rainbow Drop UV Canvas Art" onclick="openLightboxUV(this)">
+    <div class="caption">Rainbow Drop</div>
+</div>
+
+<div class="item uv-pair" data-normal="images/tri_angles.jpeg" data-uv="images/tri_angles_uv.jpeg">
+    <div class="uv-switch">
+        <button class="uv-btn normal active" onclick="swapUV(this)">Normal</button>
+        <button class="uv-btn uv" onclick="swapUV(this)">UV</button>
+    </div>
+    <img class="uv-img" src="images/tri_angles.jpeg" alt="Tri Angles UV Painting" onclick="openLightboxUV(this)">
+    <div class="caption">Tri Angles</div>
+</div>
+
+</div> <!-- END GALLERY -->
+
+<!-- FOOTER -->
+<footer class="footer">
+    © 2025 Molly’s Art. All Rights Reserved.
+</footer>
+
+<!-- JAVASCRIPT -->
 <script>
-/* DARK MODE */
 function toggleDarkMode() {
     document.body.classList.toggle("dark");
+    document.getElementById("darkIcon").textContent =
+        document.body.classList.contains("dark") ? "☀️" : "🌙";
 }
 
 /* STANDARD LIGHTBOX */
 function openLightboxStandard(src) {
-    const lb = document.getElementById("lightbox");
-    const img = document.getElementById("lightboxImg");
-    img.src = src;
-    lb.classList.add("open");
+    document.getElementById("lightboxImg").src = src;
+    document.getElementById("lightbox").classList.add("open");
+    document.getElementById("lightboxUV").innerHTML = "";
 }
 
-/* UV LIGHTBOX - supports swapping */
-function openLightboxUV(card) {
-    const imgs = JSON.parse(card.dataset.images);
-    let idx = 0;
-
-    const lb = document.getElementById("lightbox");
-    const display = document.getElementById("lightboxImg");
-
-    display.src = imgs[0];
-    lb.classList.add("open");
-
-    display.onclick = () => {
-        idx = (idx + 1) % imgs.length;
-        display.classList.add("fade");
-        setTimeout(() => {
-            display.src = imgs[idx];
-            display.classList.remove("fade");
-        }, 180);
-    };
-}
-
-/* CLOSE LIGHTBOX */
-document.getElementById("lightbox").onclick = () => {
+function closeLightbox() {
     document.getElementById("lightbox").classList.remove("open");
-};
+}
 
-/* UV SWAP INSIDE GALLERY */
-document.querySelectorAll('.uv-pair').forEach(card => {
-    const imgs = JSON.parse(card.dataset.images);
-    let idx = 0;
-    const main = card.querySelector('.swap-img');
+/* UV SWAP IN GALLERY */
+function swapUV(btn) {
+    const box = btn.closest(".uv-pair");
+    const img = box.querySelector(".uv-img");
 
-    card.querySelector('.swap-img').addEventListener("click", e => {
-        e.stopPropagation();
-        main.classList.add("fade");
-        setTimeout(() => {
-            idx = (idx + 1) % imgs.length;
-            main.src = imgs[idx];
-            main.classList.remove("fade");
-        }, 180);
-    });
-});
+    box.querySelectorAll(".uv-btn").forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+
+    const normal = box.dataset.normal;
+    const uv = box.dataset.uv;
+
+    img.classList.add("fade");
+    setTimeout(() => {
+        img.src = btn.classList.contains("uv") ? uv : normal;
+        img.classList.remove("fade");
+    }, 200);
+}
+
+/* UV LIGHTBOX MODE */
+function openLightboxUV(el) {
+    const box = el.closest(".uv-pair");
+    const normal = box.dataset.normal;
+    const uv = box.dataset.uv;
+
+    document.getElementById("lightboxImg").src = el.src;
+    document.getElementById("lightbox").classList.add("open");
+
+    document.getElementById("lightboxUV").innerHTML = `
+        <button onclick="lightboxSwap('${normal}')">Normal</button>
+        <button onclick="lightboxSwap('${uv}')">UV</button>
+    `;
+}
+
+function lightboxSwap(src) {
+    const img = document.getElementById("lightboxImg");
+    img.classList.add("fade");
+    setTimeout(() => {
+        img.src = src;
+        img.classList.remove("fade");
+    }, 180);
+}
 </script>
 
 </body>
