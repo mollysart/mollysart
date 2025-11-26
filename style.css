@@ -1,96 +1,193 @@
-/* =============================
-   DARK MODE
-============================= */
-function toggleDarkMode() {
-    document.body.classList.toggle("dark");
+/* =========================================
+   MOLLY’S ART – PREMIUM GALLERY 2025
+   Masonry Desktop • Clean Grid Mobile
+   Smooth Lightbox • UV Transitions • SEO Ready
+========================================= */
+
+/* ---------- ROOT THEME ---------- */
+:root {
+    --bg: #f4f4f8;
+    --bg-dark: #121212;
+    --text: #222;
+    --text-dark: #f6f6f6;
+    --card-bg: #ffffff;
+    --card-dark: #1e1e1e;
+    --accent: #8b6bff;
+    --radius: 18px;
+    --shadow: 0 10px 28px rgba(0,0,0,0.12);
+    --shadow-dark: 0 10px 28px rgba(0,0,0,0.55);
+    --fade: cubic-bezier(.4,0,.2,1);
 }
 
-/* =============================
-   LIGHTBOX OPEN / CLOSE
-============================= */
-function openLightbox(src) {
-    const lb = document.getElementById("lightbox");
-    const img = document.getElementById("lightboxImg");
-
-    img.src = src;
-    lb.classList.add("open");
-
-    // Store original & UV pair if available
-    lb.dataset.original = src;
+/* ---------- DARK MODE ---------- */
+body.dark {
+    background: var(--bg-dark);
+    color: var(--text-dark);
 }
 
-function closeLightbox() {
-    const lb = document.getElementById("lightbox");
-    lb.classList.remove("open");
+body.dark .item {
+    background: var(--card-dark);
+    box-shadow: var(--shadow-dark);
 }
 
-/* =============================
-   UV SWAP IN GALLERY + LIGHTBOX
-============================= */
-document.querySelectorAll(".uv-pair").forEach(card => {
-    const imgs = JSON.parse(card.dataset.images);
-    let index = 0;
-    const img = card.querySelector(".swap-img");
+body.dark .caption { color: var(--text-dark); }
 
-    // preload UV
-    const preload = new Image();
-    preload.src = imgs[1];
+body.dark .dark-toggle {
+    background: var(--accent);
+    color: white;
+}
 
-    // click → swap UV in gallery
-    img.addEventListener("click", (e) => {
-        e.stopPropagation();
-        swapGalleryUV();
-        openLightbox(img.src);
-    });
+/* ---------- GLOBAL RESET ---------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-    // swipe → swap UV
-    let startX = 0;
-    img.addEventListener("touchstart", e => startX = e.touches[0].clientX);
-    img.addEventListener("touchend", e => {
-        if (Math.abs(e.changedTouches[0].clientX - startX) > 40) {
-            swapGalleryUV();
-        }
-    });
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Poppins", sans-serif;
+    padding-bottom: 60px;
+    transition: background 0.3s var(--fade);
+}
 
-    function swapGalleryUV() {
-        img.classList.add("fade");
-        setTimeout(() => {
-            index = (index + 1) % imgs.length;
-            img.src = imgs[index];
-            img.classList.remove("fade");
+/* ---------- TITLE HEADER ---------- */
+.title-header {
+    text-align: center;
+    padding: 40px 20px 20px;
+}
 
-            // Sync lightbox too
-            const lb = document.getElementById("lightboxImg");
-            lb.src = imgs[index];
-        }, 180);
+.title-header h1 {
+    font-size: 2.5rem;
+    font-weight: 600;
+}
+
+.title-header p {
+    margin-top: 8px;
+    font-size: 1.1rem;
+    color: #666;
+}
+
+/* ---------- DARK MODE BUTTON ---------- */
+.dark-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: var(--accent);
+    color: #fff;
+    padding: 12px 20px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    font-size: 0.9rem;
+    cursor: pointer;
+    z-index: 99;
+}
+
+/* ---------- GALLERY LAYOUT ---------- */
+
+/* Masonry on Desktop */
+.gallery {
+    column-count: 3;
+    column-gap: 22px;
+    padding: 0 20px;
+    max-width: 1400px;
+    margin: auto;
+    transition: 0.2s;
+}
+
+/* Grid on Tablets */
+@media (max-width: 900px) {
+    .gallery {
+        column-count: 2;
     }
-});
+}
 
-/* =============================
-   SWAP UV IN LIGHTBOX
-============================= */
-document.getElementById("lightboxImg").addEventListener("click", function(e) {
-    e.stopPropagation();
+/* Grid on Mobile */
+@media (max-width: 600px) {
+    .gallery {
+        column-count: 1;
+    }
+}
 
-    const current = this.src;
+/* ---------- GALLERY ITEMS ---------- */
+.item {
+    break-inside: avoid;
+    background: var(--card-bg);
+    margin-bottom: 22px;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: transform 0.25s var(--fade), box-shadow 0.25s var(--fade);
+    cursor: pointer;
+}
 
-    // Find pair that matches this image
-    const pair = [...document.querySelectorAll(".uv-pair")].find(p => {
-        const imgs = JSON.parse(p.dataset.images);
-        return imgs.includes(current);
-    });
+/* Hover Depth (desktop only) */
+@media(min-width: 700px) {
+    .item:hover {
+        transform: translateY(-4px) scale(1.02);
+        box-shadow: 0 16px 34px rgba(0,0,0,0.18);
+    }
+}
 
-    if (!pair) return;
+.item img {
+    width: 100%;
+    display: block;
+    object-fit: cover;
+    transition: opacity 0.25s var(--fade);
+}
 
-    const imgs = JSON.parse(pair.dataset.images);
-    let index = imgs.indexOf(current);
+/* Caption */
+.caption {
+    padding: 14px 18px;
+    font-size: 1rem;
+    font-weight: 500;
+}
 
-    index = (index + 1) % imgs.length;
+/* ---------- UV BADGE ---------- */
+.uv-badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: var(--accent);
+    padding: 6px 12px;
+    border-radius: 12px;
+    color: #fff;
+    font-size: 0.75rem;
+    z-index: 2;
+}
 
-    // fade UV transition
-    this.classList.add("fade");
-    setTimeout(() => {
-        this.src = imgs[index];
-        this.classList.remove("fade");
-    }, 180);
-});
+/* Fade animation for UV swap */
+.fade {
+    opacity: 0;
+}
+
+/* ---------- LIGHTBOX ---------- */
+.lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.25s var(--fade);
+    z-index: 9999;
+}
+
+.lightbox.open {
+    visibility: visible;
+    opacity: 1;
+}
+
+.lightbox img {
+    max-width: 92%;
+    max-height: 92%;
+    border-radius: var(--radius);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+    transition: 0.25s var(--fade);
+}
