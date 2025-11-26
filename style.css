@@ -1,225 +1,96 @@
-/* ---------------------------------------------------
-   MOLLY'S ART GALLERY — PREMIUM UPGRADE 2025
---------------------------------------------------- */
-
-/* GLOBAL VARIABLES */
-:root {
-    --bg1: #f7f7fb;
-    --bg2: #ececff;
-    --text: #222;
-    --muted: #777;
-    --accent: #7b5cff;
-    --card-bg: rgba(255, 255, 255, 0.65);
-    --radius: 20px;
-    --shadow: 0 10px 30px rgba(0,0,0,0.12);
-    --glass: rgba(255, 255, 255, 0.45);
-    --backdrop: blur(12px);
+/* =============================
+   DARK MODE
+============================= */
+function toggleDarkMode() {
+    document.body.classList.toggle("dark");
 }
 
-/* DARK MODE */
-body.dark {
-    --bg1: #151515;
-    --bg2: #282828;
-    --text: #f2f2f2;
-    --muted: #aaa;
-    --card-bg: rgba(40,40,40,0.6);
-    --glass: rgba(60,60,60,0.6);
+/* =============================
+   LIGHTBOX OPEN / CLOSE
+============================= */
+function openLightbox(src) {
+    const lb = document.getElementById("lightbox");
+    const img = document.getElementById("lightboxImg");
+
+    img.src = src;
+    lb.classList.add("open");
+
+    // Store original & UV pair if available
+    lb.dataset.original = src;
 }
 
-/* GLOBAL */
-body {
-    margin: 0;
-    font-family: "Poppins", sans-serif;
-    background: linear-gradient(135deg, var(--bg1), var(--bg2));
-    color: var(--text);
-    transition: background 0.6s ease, color 0.4s ease;
+function closeLightbox() {
+    const lb = document.getElementById("lightbox");
+    lb.classList.remove("open");
 }
 
-/* HERO */
-header.hero {
-    padding: 80px 20px 50px;
-    text-align: center;
-}
+/* =============================
+   UV SWAP IN GALLERY + LIGHTBOX
+============================= */
+document.querySelectorAll(".uv-pair").forEach(card => {
+    const imgs = JSON.parse(card.dataset.images);
+    let index = 0;
+    const img = card.querySelector(".swap-img");
 
-.hero img {
-    max-width: 260px;
-    border-radius: 20px;
-    box-shadow: var(--shadow);
-    transition: transform 0.4s ease;
-}
-.hero img:hover { transform: scale(1.05); }
+    // preload UV
+    const preload = new Image();
+    preload.src = imgs[1];
 
-.hero h1 {
-    font-size: 3rem;
-    margin: 22px 0 8px;
-    font-weight: 600;
-}
+    // click → swap UV in gallery
+    img.addEventListener("click", (e) => {
+        e.stopPropagation();
+        swapGalleryUV();
+        openLightbox(img.src);
+    });
 
-.hero p {
-    font-size: 1.2rem;
-    color: var(--muted);
-    max-width: 600px;
-    margin: auto;
-}
+    // swipe → swap UV
+    let startX = 0;
+    img.addEventListener("touchstart", e => startX = e.touches[0].clientX);
+    img.addEventListener("touchend", e => {
+        if (Math.abs(e.changedTouches[0].clientX - startX) > 40) {
+            swapGalleryUV();
+        }
+    });
 
-/* MOBILE MENU */
-.mobile-menu-btn {
-    position: fixed;
-    top: 18px;
-    left: 18px;
-    background: var(--accent);
-    padding: 10px 16px;
-    color: white;
-    border-radius: 12px;
-    cursor: pointer;
-    z-index: 999;
-    box-shadow: var(--shadow);
-}
+    function swapGalleryUV() {
+        img.classList.add("fade");
+        setTimeout(() => {
+            index = (index + 1) % imgs.length;
+            img.src = imgs[index];
+            img.classList.remove("fade");
 
-.side-menu {
-    position: fixed;
-    top: 0;
-    left: -260px;
-    width: 240px;
-    height: 100vh;
-    background: var(--glass);
-    backdrop-filter: var(--backdrop);
-    box-shadow: var(--shadow);
-    transition: 0.4s ease;
-    z-index: 998;
-    padding: 70px 25px;
-}
+            // Sync lightbox too
+            const lb = document.getElementById("lightboxImg");
+            lb.src = imgs[index];
+        }, 180);
+    }
+});
 
-.side-menu.open { left: 0; }
+/* =============================
+   SWAP UV IN LIGHTBOX
+============================= */
+document.getElementById("lightboxImg").addEventListener("click", function(e) {
+    e.stopPropagation();
 
-.side-menu a {
-    display: block;
-    font-size: 1.3rem;
-    margin-bottom: 24px;
-    text-decoration: none;
-    color: var(--text);
-}
+    const current = this.src;
 
-/* DARK MODE BUTTON */
-.dark-toggle {
-    position: fixed;
-    top: 18px;
-    right: 18px;
-    background: var(--accent);
-    padding: 10px 16px;
-    color: #fff;
-    border-radius: 12px;
-    cursor: pointer;
-    z-index: 999;
-}
+    // Find pair that matches this image
+    const pair = [...document.querySelectorAll(".uv-pair")].find(p => {
+        const imgs = JSON.parse(p.dataset.images);
+        return imgs.includes(current);
+    });
 
-/* GALLERY GRID */
-.gallery {
-    column-count: 3;
-    column-gap: 22px;
-    max-width: 1300px;
-    margin: auto;
-    padding: 0 25px 60px;
-}
+    if (!pair) return;
 
-@media (max-width: 900px) { .gallery { column-count: 2; } }
-@media (max-width: 600px) { .gallery { column-count: 1; } }
+    const imgs = JSON.parse(pair.dataset.images);
+    let index = imgs.indexOf(current);
 
-/* ART CARDS */
-.item {
-    margin-bottom: 22px;
-    break-inside: avoid;
-    background: var(--card-bg);
-    backdrop-filter: var(--backdrop);
-    border-radius: var(--radius);
-    box-shadow: var(--shadow);
-    overflow: hidden;
-    position: relative;
-    animation: fadeUp 0.7s ease forwards;
-    opacity: 0;
-}
+    index = (index + 1) % imgs.length;
 
-@keyframes fadeUp {
-    to { opacity: 1; transform: translateY(0); }
-}
-
-.item img {
-    width: 100%;
-    display: block;
-    transition: transform 0.3s ease, opacity 0.3s ease, filter 0.3s ease;
-}
-
-/* Depth Hover */
-.item:hover img {
-    transform: scale(1.04);
-}
-
-/* CAPTION */
-.caption {
-    padding: 15px;
-    font-size: 1rem;
-    font-weight: 500;
-}
-
-/* UV BADGE */
-.uv-badge {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    background: rgba(123,92,255,0.95);
-    padding: 6px 12px;
-    border-radius: 12px;
-    color: white;
-    font-size: 0.75rem;
-    z-index: 3;
-}
-
-/* LIGHTBOX */
-.lightbox {
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.85);
-    display: none;
-    justify-content: center;
-    align-items: center;
-    z-index: 2000;
-    padding: 20px;
-}
-
-.lightbox.open {
-    display: flex !important;
-}
-
-.lightbox img {
-    max-width: 92%;
-    max-height: 88vh;
-    border-radius: 16px;
-    box-shadow: var(--shadow);
-    animation: zoomIn 0.4s ease;
-}
-
-@keyframes zoomIn {
-    0% { opacity: 0; transform: scale(0.7); }
-    100% { opacity: 1; transform: scale(1); }
-}
-
-/* FADE CLASS FOR UV */
-.fade { opacity: 0 !important; filter: blur(6px) !important; }
-
-/* SECRET MODE */
-body.secret-mode {
-    filter: hue-rotate(180deg) saturate(1.4);
-}
-
-.secret-hint {
-    display: none;
-}
-
-body.secret-mode .secret-hint {
-    display: block;
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    color: white;
-    font-size: 1rem;
-}
+    // fade UV transition
+    this.classList.add("fade");
+    setTimeout(() => {
+        this.src = imgs[index];
+        this.classList.remove("fade");
+    }, 180);
+});
