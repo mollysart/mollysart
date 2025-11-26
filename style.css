@@ -1,43 +1,17 @@
-/* =========================================
-   MOLLY’S ART – PREMIUM GALLERY 2025
-   Masonry Desktop • Clean Grid Mobile
-   Smooth Lightbox • UV Transitions • SEO Ready
-========================================= */
-
-/* ---------- ROOT THEME ---------- */
+/* ===== ROOT THEME ===== */
 :root {
-    --bg: #f4f4f8;
-    --bg-dark: #121212;
-    --text: #222;
-    --text-dark: #f6f6f6;
-    --card-bg: #ffffff;
+    --bg: #f2f3fa;
+    --bg-dark: #121214;
+    --text: #1b1b1b;
+    --text-dark: #f0f0f0;
+    --card: #ffffff;
     --card-dark: #1e1e1e;
     --accent: #8b6bff;
-    --radius: 18px;
+    --radius: 20px;
     --shadow: 0 10px 28px rgba(0,0,0,0.12);
-    --shadow-dark: 0 10px 28px rgba(0,0,0,0.55);
-    --fade: cubic-bezier(.4,0,.2,1);
 }
 
-/* ---------- DARK MODE ---------- */
-body.dark {
-    background: var(--bg-dark);
-    color: var(--text-dark);
-}
-
-body.dark .item {
-    background: var(--card-dark);
-    box-shadow: var(--shadow-dark);
-}
-
-body.dark .caption { color: var(--text-dark); }
-
-body.dark .dark-toggle {
-    background: var(--accent);
-    color: white;
-}
-
-/* ---------- GLOBAL RESET ---------- */
+/* ===== GLOBAL ===== */
 * {
     margin: 0;
     padding: 0;
@@ -48,85 +22,81 @@ body {
     background: var(--bg);
     color: var(--text);
     font-family: "Poppins", sans-serif;
-    padding-bottom: 60px;
-    transition: background 0.3s var(--fade);
+    transition: background .3s ease;
 }
 
-/* ---------- TITLE HEADER ---------- */
-.title-header {
-    text-align: center;
-    padding: 40px 20px 20px;
+/* ===== DARK MODE ===== */
+body.dark {
+    background: var(--bg-dark);
+    color: var(--text-dark);
 }
-
-.title-header h1 {
-    font-size: 2.5rem;
-    font-weight: 600;
+body.dark .item {
+    background: var(--card-dark);
+    box-shadow: 0 12px 28px rgba(0,0,0,0.5);
 }
+body.dark .caption { color: var(--text-dark); }
 
-.title-header p {
-    margin-top: 8px;
-    font-size: 1.1rem;
-    color: #666;
-}
-
-/* ---------- DARK MODE BUTTON ---------- */
+/* ===== DARK MODE BUTTON ===== */
 .dark-toggle {
     position: fixed;
     top: 20px;
     right: 20px;
-    background: var(--accent);
-    color: #fff;
     padding: 12px 20px;
+    background: var(--accent);
+    color: white;
     border-radius: var(--radius);
     box-shadow: var(--shadow);
-    font-size: 0.9rem;
     cursor: pointer;
-    z-index: 99;
+    z-index: 9999;
 }
 
-/* ---------- GALLERY LAYOUT ---------- */
+/* ===== TITLE HEADER ===== */
+.title-header {
+    text-align: center;
+    padding: 50px 20px 30px;
+}
+.title-header h1 {
+    font-size: 2.4rem;
+    font-weight: 700;
+}
+.title-header p {
+    margin-top: 8px;
+    font-size: 1.15rem;
+    color: #666;
+}
 
-/* Masonry on Desktop */
+/* ===== MASONRY DESKTOP / GRID MOBILE ===== */
 .gallery {
-    column-count: 3;
-    column-gap: 22px;
-    padding: 0 20px;
     max-width: 1400px;
     margin: auto;
-    transition: 0.2s;
+    padding: 0 20px;
+    column-count: 3;
+    column-gap: 24px;
 }
 
-/* Grid on Tablets */
 @media (max-width: 900px) {
-    .gallery {
-        column-count: 2;
-    }
+    .gallery { column-count: 2; }
 }
-
-/* Grid on Mobile */
 @media (max-width: 600px) {
-    .gallery {
-        column-count: 1;
-    }
+    .gallery { column-count: 1; }
 }
 
-/* ---------- GALLERY ITEMS ---------- */
+/* ===== GALLERY ITEM ===== */
 .item {
+    position: relative;
+    background: var(--card);
     break-inside: avoid;
-    background: var(--card-bg);
-    margin-bottom: 22px;
+    margin-bottom: 24px;
     border-radius: var(--radius);
     overflow: hidden;
     box-shadow: var(--shadow);
-    transition: transform 0.25s var(--fade), box-shadow 0.25s var(--fade);
+    transition: transform .25s ease, box-shadow .25s ease;
     cursor: pointer;
 }
-
-/* Hover Depth (desktop only) */
-@media(min-width: 700px) {
+@media(min-width:700px){
     .item:hover {
-        transform: translateY(-4px) scale(1.02);
-        box-shadow: 0 16px 34px rgba(0,0,0,0.18);
+        transform: translateY(-5px) scale(1.02);
+        box-shadow: 0 18px 38px rgba(0,0,0,0.15);
     }
 }
 
@@ -134,49 +104,45 @@ body {
     width: 100%;
     display: block;
     object-fit: cover;
-    transition: opacity 0.25s var(--fade);
+    transition: opacity .25s ease;
 }
 
-/* Caption */
+/* CAPTION */
 .caption {
-    padding: 14px 18px;
+    padding: 16px 18px;
     font-size: 1rem;
     font-weight: 500;
 }
 
-/* ---------- UV BADGE ---------- */
+/* UV BADGE */
 .uv-badge {
     position: absolute;
     top: 12px;
     left: 12px;
     background: var(--accent);
-    padding: 6px 12px;
-    border-radius: 12px;
     color: #fff;
+    padding: 6px 12px;
     font-size: 0.75rem;
+    border-radius: 12px;
     z-index: 2;
 }
 
-/* Fade animation for UV swap */
-.fade {
-    opacity: 0;
-}
+/* FADE FOR UV SWAP */
+.fade { opacity: 0; }
 
-/* ---------- LIGHTBOX ---------- */
+/* ===== LIGHTBOX ===== */
 .lightbox {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    inset: 0;
     background: rgba(0,0,0,0.85);
+    backdrop-filter: blur(4px);
     display: flex;
     align-items: center;
     justify-content: center;
     visibility: hidden;
     opacity: 0;
-    transition: opacity 0.25s var(--fade);
-    z-index: 9999;
+    transition: opacity .25s ease;
+    z-index: 999999;
 }
 
 .lightbox.open {
@@ -185,9 +151,8 @@ body {
 }
 
 .lightbox img {
-    max-width: 92%;
-    max-height: 92%;
+    max-width: 90%;
+    max-height: 90%;
     border-radius: var(--radius);
     box-shadow: 0 20px 40px rgba(0,0,0,0.6);
-    transition: 0.25s var(--fade);
 }
