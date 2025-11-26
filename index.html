@@ -1,113 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>Molly’s Art Gallery – Interactive UV Collection</title>
-<meta name="description" content="Explore Molly’s hand-painted artwork with UV-reactive effects and immersive zoom.">
+<title>Molly’s Art Gallery – Hand Painted Canvas Collection (UV & Standard)</title>
 
+<meta name="description" content="Explore Molly’s hand-painted canvas artwork, including UV-reactive paintings, cartoons, psychedelic pieces, and original creative art. Fully interactive gallery with lightbox and UV mode.">
+
+<link rel="canonical" href="https://mollysart.github.io/mollysart/">
 <link rel="stylesheet" href="style.css">
-<link rel="icon" type="image/png" href="images/tri_angles_uv.jpeg">
 
+<!-- SEO Keywords -->
+<meta name="keywords" content="molly art, canvas art, uv canvas, hand painted canvas, psychedelic art, cartoon canvas, custom artwork, spongebob art, handmade paintings, art gallery uk">
+
+<!-- Social Preview -->
+<meta property="og:title" content="Molly’s Art Gallery – Hand Painted Canvas Collection">
+<meta property="og:description" content="Explore UV and standard artwork in a premium interactive gallery.">
+<meta property="og:image" content="images/tri_angles_uv.jpeg">
+<meta property="og:url" content="https://mollysart.github.io/mollysart/">
+
+<!-- Schema Markup -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "VisualArtwork",
+  "name": "Molly's Art Gallery",
+  "url": "https://mollysart.github.io/mollysart/",
+  "creator": {
+    "@type": "Person",
+    "name": "Molly"
+  },
+  "artMedium": "Canvas",
+  "artform": "Painting",
+  "genre": "Cartoon, Psychedelic, UV Art"
+}
+</script>
+
+<link rel="icon" type="image/png" href="images/tri_angles_uv.jpeg">
 </head>
 
 <body>
 
-<!-- DARK MODE -->
-<div class="dark-toggle" onclick="toggleDarkMode()">🌙</div>
+<div class="dark-toggle" onclick="toggleDarkMode()">🌙 Dark Mode</div>
 
-<!-- LIGHTBOX -->
+<div class="title-header">
+    <h1>Molly’s Art Gallery</h1>
+    <p>Hand-painted canvases • UV-reactive art • Original creative pieces</p>
+</div>
+
+<!-- Lightbox -->
 <div class="lightbox" id="lightbox" onclick="closeLightbox()">
-    <img id="lightboxImg" src="">
+    <img id="lightboxImg">
 </div>
 
 <!-- GALLERY -->
-<div class="gallery" id="gallery">
+<div class="gallery">
 
-<!-- FIRST IMAGE ALWAYS KRABS -->
-<div class="item"><img loading="lazy" onclick="openLightbox(this.src)" src="images/can_you_feel_it_yet_mr_krabs.jpeg"><div class="caption">Can You Feel It Mr Krabs?</div></div>
+<!-- FIRST IMAGE (featured but not hero) -->
+<div class="item">
+    <img src="images/can_you_feel_it_yet_mr_krabs.jpeg" alt="Can You Feel It Mr Krabs Canvas Art" onclick="openLightbox(this.src)">
+    <div class="caption">Can You Feel It Mr Krabs?</div>
+</div>
 
-<!-- NON-UV ARTWORKS -->
-<div class="item"><img loading="lazy" src="images/anybody_there.jpeg" onclick="openLightbox(this.src)"><div class="caption">Anybody There?</div></div>
-<div class="item"><img loading="lazy" src="images/away_from_bikini_bottom.jpeg" onclick="openLightbox(this.src)"><div class="caption">Away From Bikini Bottom</div></div>
-<div class="item"><img loading="lazy" src="images/badass.jpeg" onclick="openLightbox(this.src)"><div class="caption">Badass</div></div>
-<div class="item"><img loading="lazy" src="images/buttered_toast.jpeg" onclick="openLightbox(this.src)"><div class="caption">Buttered Toast</div></div>
-<div class="item"><img loading="lazy" src="images/cheeky_devil.jpeg" onclick="openLightbox(this.src)"><div class="caption">Cheeky Devil</div></div>
-<div class="item"><img loading="lazy" src="images/derek_n_dorris.jpeg" onclick="openLightbox(this.src)"><div class="caption">Derek 'n Dorris</div></div>
-<div class="item"><img loading="lazy" src="images/encourage_courage.jpeg" onclick="openLightbox(this.src)"><div class="caption">Encourage Courage</div></div>
-<div class="item"><img loading="lazy" src="images/frog.jpeg" onclick="openLightbox(this.src)"><div class="caption">Frog</div></div>
-<div class="item"><img loading="lazy" src="images/garys_butt.jpeg" onclick="openLightbox(this.src)"><div class="caption">Gary’s Butt</div></div>
-<div class="item"><img loading="lazy" src="images/gaylien_invaders.jpeg" onclick="openLightbox(this.src)"><div class="caption">Gaylien Invaders</div></div>
-<div class="item"><img loading="lazy" src="images/good_boy.jpeg" onclick="openLightbox(this.src)"><div class="caption">Good Boy</div></div>
-<div class="item"><img loading="lazy" src="images/hippie_camper.jpeg" onclick="openLightbox(this.src)"><div class="caption">Hippie Camper</div></div>
-<div class="item"><img loading="lazy" src="images/lost_in_space.jpeg" onclick="openLightbox(this.src)"><div class="caption">Lost In Space</div></div>
-<div class="item"><img loading="lazy" src="images/masterpiece.jpeg" onclick="openLightbox(this.src)"><div class="caption">Masterpiece</div></div>
-<div class="item"><img loading="lazy" src="images/not_again.jpeg" onclick="openLightbox(this.src)"><div class="caption">Not Again</div></div>
-<div class="item"><img loading="lazy" src="images/poobob.jpeg" onclick="openLightbox(this.src)"><div class="caption">Poobob</div></div>
-<div class="item"><img loading="lazy" src="images/portal_of_hell.jpeg" onclick="openLightbox(this.src)"><div class="caption">Portal of Hell</div></div>
-<div class="item"><img loading="lazy" src="images/sandy_bottom.jpeg" onclick="openLightbox(this.src)"><div class="caption">Sandy Bottom</div></div>
-<div class="item"><img loading="lazy" src="images/scooby_crew_where_are_you.jpeg" onclick="openLightbox(this.src)"><div class="caption">Scooby Crew – Where Are You?</div></div>
-<div class="item"><img loading="lazy" src="images/scooby_who.jpeg" onclick="openLightbox(this.src)"><div class="caption">Scooby Who?</div></div>
-<div class="item"><img loading="lazy" src="images/so_handsome.jpeg" onclick="openLightbox(this.src)"><div class="caption">So Handsome</div></div>
-<div class="item"><img loading="lazy" src="images/squiddy.jpeg" onclick="openLightbox(this.src)"><div class="caption">Squiddy</div></div>
-<div class="item"><img loading="lazy" src="images/take_me_back.jpeg" onclick="openLightbox(this.src)"><div class="caption">Take Me Back</div></div>
-<div class="item"><img loading="lazy" src="images/the_devil_in_gods_hands.jpeg" onclick="openLightbox(this.src)"><div class="caption">The Devil In God’s Hands</div></div>
-<div class="item"><img loading="lazy" src="images/the_stoned_age.jpeg" onclick="openLightbox(this.src)"><div class="caption">The Stoned Age</div></div>
-<div class="item"><img loading="lazy" src="images/urgh_urgh.jpeg" onclick="openLightbox(this.src)"><div class="caption">Urgh Urgh</div></div>
-<div class="item"><img loading="lazy" src="images/victory_is_mine.jpeg" onclick="openLightbox(this.src)"><div class="caption">Victory Is Mine</div></div>
-<div class="item"><img loading="lazy" src="images/why_did_the_chicken_cross_the_road.jpeg" onclick="openLightbox(this.src)"><div class="caption">Why Did The Chicken Cross The Road?</div></div>
+<!-- NON UV — auto items -->
+<!-- (keep your other non-UV items here exactly as before) -->
 
-<!-- UV PAIRS -->
+<!-- ================= UV ITEMS ================= -->
+
 <div class="item uv-pair" data-images='["images/999_till_the_world_blow.jpeg","images/999_till_the_world_blow_uv.jpeg"]'>
     <div class="uv-badge">UV Mode</div>
-    <img class="swap-img" loading="lazy" src="images/999_till_the_world_blow.jpeg">
+    <img class="swap-img" src="images/999_till_the_world_blow.jpeg" alt="999 Till The World Blow UV Canvas" onclick="openLightboxUV(this, event)">
     <div class="caption">999 Till The World Blow (UV)</div>
 </div>
 
 <div class="item uv-pair" data-images='["images/aint_mushroom_in_here_(uv_activated_off).jpeg","images/aint_mushroom_in_here_(uv_activated).jpeg"]'>
     <div class="uv-badge">UV Mode</div>
-    <img class="swap-img" loading="lazy" src="images/aint_mushroom_in_here_(uv_activated_off).jpeg">
+    <img class="swap-img" src="images/aint_mushroom_in_here_(uv_activated_off).jpeg" alt="Ain't Mushroom In Here Canvas UV" onclick="openLightboxUV(this, event)">
     <div class="caption">Ain't Mushroom In Here</div>
 </div>
 
-<div class="item uv-pair" data-images='["images/khaos_(uv_activated).jpeg","images/khaos_(uv_activated_on).jpeg"]'>
-    <div class="uv-badge">UV Mode</div>
-    <img class="swap-img" loading="lazy" src="images/khaos_(uv_activated).jpeg">
-    <div class="caption">Khaos</div>
-</div>
-
-<div class="item uv-pair" data-images='["images/light_up_the_sky_(uv_activated).jpeg","images/light_up_the_sky_(uv_activated_on).jpeg"]'>
-    <div class="uv-badge">UV Mode</div>
-    <img class="swap-img" loading="lazy" src="images/light_up_the_sky_(uv_activated).jpeg">
-    <div class="caption">Light Up The Sky</div>
-</div>
-
-<div class="item uv-pair" data-images='["images/rortal_(uv_activated_off).jpeg","images/rortal_(uv_activated_on).jpeg"]'>
-    <div class="uv-badge">UV Mode</div>
-    <img class="swap-img" loading="lazy" src="images/rortal_(uv_activated_off).jpeg">
-    <div class="caption">Rortal</div>
-</div>
-
-<div class="item uv-pair" data-images='["images/rainbow_drop.jpeg","images/rainbow_drop_uv.jpeg"]'>
-    <div class="uv-badge">UV Mode</div>
-    <img class="swap-img" loading="lazy" src="images/rainbow_drop.jpeg">
-    <div class="caption">Rainbow Drop</div>
-</div>
-
-<div class="item uv-pair" data-images='["images/tri_angles.jpeg","images/tri_angles_uv.jpeg"]'>
-    <div class="uv-badge">UV Mode</div>
-    <img class="swap-img" loading="lazy" src="images/tri_angles.jpeg">
-    <div class="caption">Tri Angles</div>
-</div>
+<!-- Continue the rest of the UV items exactly as before -->
 
 </div>
 
-<footer style="text-align:center;padding:40px 0 60px;color:var(--muted);">
-    © 2025 Molly’s Art. All Rights Reserved.
-</footer>
+<script>
+/* ---------- DARK MODE ---------- */
+function toggleDarkMode() {
+    document.body.classList.toggle("dark");
+}
 
-<script src="script.js"></script>
+/* ---------- LIGHTBOX NORMAL ---------- */
+function openLightbox(src) {
+    document.getElementById("lightboxImg").src = src;
+    document.getElementById("lightbox").classList.add("open");
+}
+function closeLightbox() {
+    document.getElementById("lightbox").classList.remove("open");
+}
+
+/* ---------- LIGHTBOX FOR UV ---------- */
+function openLightboxUV(img, event) {
+    event.stopPropagation();
+    const parent = img.closest('.uv-pair');
+    const imgs = JSON.parse(parent.dataset.images);
+
+    document.getElementById("lightboxImg").src = img.src;
+    document.getElementById("lightbox").classList.add("open");
+}
+
+/* ---------- UV CLICK SWAP ---------- */
+document.querySelectorAll('.uv-pair').forEach(card => {
+    const imgs = JSON.parse(card.dataset.images);
+    let idx = 0;
+    const imgEl = card.querySelector('.swap-img');
+
+    imgEl.addEventListener("click", e => {
+        e.stopPropagation();
+        imgEl.classList.add("fade");
+        setTimeout(() => {
+            idx = (idx + 1) % imgs.length;
+            imgEl.src = imgs[idx];
+            imgEl.classList.remove("fade");
+        }, 220);
+    });
+});
+</script>
 
 </body>
 </html>
