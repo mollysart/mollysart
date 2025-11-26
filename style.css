@@ -1,4 +1,43 @@
-/* GENERAL */
+/* =========================================
+   MOLLY’S ART — PREMIUM INTERACTIVE GALLERY
+   Masonry Grid • UV Toggle • Lightbox
+   Works on ALL phones & desktop browsers
+========================================= */
+
+/* ---------- ROOT THEME ---------- */
+:root {
+    --bg: #f4f4f8;
+    --bg-dark: #121212;
+    --text: #222;
+    --text-dark: #f6f6f6;
+    --card: #ffffff;
+    --card-dark: #1e1e1e;
+    --accent: #8b6bff;
+    --radius: 18px;
+    --shadow: 0 10px 28px rgba(0,0,0,0.12);
+    --shadow-dark: 0 10px 28px rgba(0,0,0,0.55);
+    --fade: cubic-bezier(.4,0,.2,1);
+}
+
+/* ---------- DARK MODE ---------- */
+body.dark {
+    background: var(--bg-dark);
+    color: var(--text-dark);
+}
+
+body.dark .item {
+    background: var(--card-dark);
+    box-shadow: var(--shadow-dark);
+}
+
+body.dark .caption { color: var(--text-dark); }
+
+body.dark .dark-toggle {
+    background: var(--accent);
+    color: white;
+}
+
+/* ---------- RESET ---------- */
 * {
     margin: 0;
     padding: 0;
@@ -6,155 +45,160 @@
 }
 
 body {
-    background: #f5f6fb;
-    color: #222;
+    background: var(--bg);
+    color: var(--text);
     font-family: "Poppins", sans-serif;
-    padding-bottom: 50px;
-    transition: 0.3s ease-in-out;
+    padding-bottom: 60px;
+    transition: background 0.3s var(--fade), color 0.3s var(--fade);
 }
 
-/* DARK MODE */
-body.dark { background:#121212; color:#fff; }
-body.dark .item { background:#1d1d1d; }
-
-/* HEADER */
-.header {
+/* ---------- HEADER ---------- */
+.title-header {
     text-align: center;
-    padding: 30px 20px 15px;
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    align-items: center;
+    padding: 40px 20px 20px;
 }
 
-.header h1 {
-    font-size: 2rem;
-    font-weight: 700;
+.title-header h1 {
+    font-size: 2.5rem;
+    font-weight: 600;
 }
 
+.title-header p {
+    margin-top: 8px;
+    font-size: 1.1rem;
+    color: #666;
+}
+
+/* ---------- DARK MODE BUTTON ---------- */
 .dark-toggle {
-    background: #8b6bff;
-    border: none;
-    padding: 10px 14px;
-    border-radius: 12px;
+    position: fixed;
+    top: 18px;
+    right: 18px;
+    background: var(--accent);
+    color: #fff;
+    padding: 12px 16px;
+    font-size: 1.1rem;
+    border-radius: 50%;
     cursor: pointer;
-    color:white;
-    font-size: 1rem;
+    z-index: 2000;
+    box-shadow: var(--shadow);
+    transition: 0.25s;
 }
 
-/* SUBTITLE */
-.subtitle {
-    text-align: center;
-    margin-bottom: 20px;
-    color: #555;
+.dark-toggle:hover {
+    transform: scale(1.1);
 }
 
-/* GALLERY */
+/* ---------- GALLERY LAYOUT ---------- */
 .gallery {
     column-count: 3;
-    column-gap: 16px;
-    padding: 0 18px;
+    column-gap: 22px;
+    padding: 0 20px;
+    max-width: 1400px;
+    margin: auto;
 }
 
-@media(max-width:900px) { .gallery { column-count: 2; } }
-@media(max-width:600px) { .gallery { column-count: 1; } }
+@media (max-width: 900px) {
+    .gallery { column-count: 2; }
+}
+@media (max-width: 600px) {
+    .gallery { column-count: 1; }
+}
 
-/* ITEM */
+/* ---------- ITEM CARDS ---------- */
 .item {
     break-inside: avoid;
-    margin-bottom: 18px;
-    background: white;
-    border-radius: 18px;
+    background: var(--card);
+    margin-bottom: 22px;
+    border-radius: var(--radius);
     overflow: hidden;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    box-shadow: var(--shadow);
     position: relative;
+    transition: 0.3s var(--fade);
 }
 
 .item img {
     width: 100%;
     display: block;
-    border-radius: 18px 18px 0 0;
+    object-fit: cover;
+    transition: opacity 0.25s var(--fade);
 }
 
-/* CAPTION */
+/* Caption */
 .caption {
-    padding: 12px 16px;
+    padding: 14px 18px;
     font-size: 1rem;
     font-weight: 500;
 }
 
-/* UV BUTTON (CARD) */
+/* ---------- UV BUTTON ON CARD ---------- */
 .uv-btn {
     position: absolute;
-    bottom: 12px;
+    top: 12px;
     right: 12px;
-    background: rgba(120, 60, 255, 0.9);
-    color:white;
-    padding: 8px 14px;
+    background: var(--accent);
+    color: #fff;
+    padding: 6px 14px;
+    font-size: 0.8rem;
+    border-radius: 20px;
     border: none;
-    border-radius: 14px;
     cursor: pointer;
-    z-index: 3;
-    transition: 0.25s;
+    z-index: 10;
+    box-shadow: var(--shadow);
+    transition: background 0.25s, transform 0.2s;
 }
 
 .uv-btn.uv-on {
-    background: #59ff98;
-    color: #003b17;
-    transform: scale(1.08);
+    background: #ff4dff;
+    transform: scale(1.1);
 }
 
-/* UV IMAGE FADE */
-.uv-img {
-    transition: opacity 0.25s ease-in-out;
-}
-
-/* LIGHTBOX */
+/* ---------- LIGHTBOX ---------- */
 .lightbox {
     position: fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    background: rgba(0,0,0,0.9);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    visibility:hidden;
-    opacity:0;
-    transition: 0.3s ease;
-    z-index:99999;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.85);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.25s var(--fade);
+    z-index: 5000;
 }
 
 .lightbox.open {
-    visibility:visible;
-    opacity:1;
+    opacity: 1;
+    visibility: visible;
 }
 
 .lightbox img {
-    max-width:90%;
-    max-height:90%;
-    border-radius: 14px;
-    transition: opacity 0.25s ease;
+    max-width: 90%;
+    max-height: 88%;
+    border-radius: var(--radius);
+    transition: opacity 0.25s;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.6);
 }
 
-/* UV BUTTON INSIDE LIGHTBOX */
-.uv-toggle-full {
-    position:absolute;
-    bottom:40px;
-    left:50%;
-    transform: translateX(-50%);
-    padding:12px 26px;
-    background: rgba(120, 60, 255, 0.9);
-    color:white;
-    border:none;
-    border-radius:18px;
-    font-size:1rem;
-    cursor:pointer;
-    transition:0.25s;
+/* UV toggle inside lightbox */
+.uv-btn-full {
+    position: absolute;
+    bottom: 50px;
+    right: 50%;
+    transform: translateX(50%);
+    background: var(--accent);
+    color: white;
+    padding: 12px 25px;
+    border-radius: 25px;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    z-index: 6000;
+    transition: 0.25s;
 }
 
-.uv-toggle-full.uv-on {
-    background:#59ff98;
-    color:#003b17;
+.uv-btn-full.uv-on {
+    background: #ff4dff;
+    transform: translateX(50%) scale(1.1);
 }
