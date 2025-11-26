@@ -10,7 +10,6 @@
 <link rel="stylesheet" href="style.css">
 
 <link rel="icon" type="image/png" href="images/tri_angles_uv.jpeg">
-
 </head>
 
 <body>
@@ -20,10 +19,10 @@
 <div class="mobile-menu-btn" onclick="toggleMenu()">☰ Menu</div>
 
 <div class="side-menu" id="sideMenu">
-    <a href="#gallery">Gallery</a>
-    <a href="#featured">Featured</a>
-    <a href="#" onclick="toggleDarkMode()">Toggle Dark Mode</a>
-    <a href="#" onclick="activateSecret()">Secret Mode</a>
+    <a href="#gallery" onclick="closeMenu()">Gallery</a>
+    <a href="#featured" onclick="closeMenu()">Featured</a>
+    <a href="#" onclick="toggleDarkMode(); closeMenu()">Toggle Dark Mode</a>
+    <a href="#" onclick="activateSecret(); closeMenu()">Secret Mode</a>
 </div>
 
 <!-- ================= DARK MODE TOGGLE ================= -->
@@ -31,7 +30,7 @@
 
 <!-- ================= FEATURED HERO ================= -->
 <header class="hero" id="featured">
-    <img src="images/can_you_feel_it_mr_krabs.jpeg" alt="Featured Art">
+    <img src="images/can_you_feel_it_yet_mr_krabs.jpeg" alt="Featured Art">
     <h1>Molly’s Art Gallery</h1>
     <p>Welcome to my interactive art exhibition — explore UV-reactive paintings, zoom-in views, and a beautifully curated gallery experience.</p>
 </header>
@@ -45,6 +44,7 @@
 <div class="gallery" id="gallery">
 
 <!-- 🔥 NON-UV ARTWORKS -->
+
 <div class="item"><img loading="lazy" src="images/anybody_there.jpeg" onclick="openLightbox(this.src)"><div class="caption">Anybody There?</div></div>
 <div class="item"><img loading="lazy" src="images/away_from_bikini_bottom.jpeg" onclick="openLightbox(this.src)"><div class="caption">Away From Bikini Bottom</div></div>
 <div class="item"><img loading="lazy" src="images/badass.jpeg" onclick="openLightbox(this.src)"><div class="caption">Badass</div></div>
@@ -145,7 +145,11 @@
 <!-- ================= JAVASCRIPT ================= -->
 <script>
 
-/* ------------------- SLIDE MINI MENU ------------------- */
+/* ------------------- CLOSE MENU WHEN CLICKED ------------------- */
+function closeMenu() {
+    document.getElementById("sideMenu").classList.remove("open");
+}
+
 function toggleMenu() {
     document.getElementById("sideMenu").classList.toggle("open");
 }
