@@ -145,7 +145,7 @@
 <!-- ================= JAVASCRIPT ================= -->
 <script>
 
-/* ------------------- CLOSE MENU WHEN CLICKED ------------------- */
+/* ------------------- CLOSE MENU ------------------- */
 function closeMenu() {
     document.getElementById("sideMenu").classList.remove("open");
 }
@@ -160,16 +160,27 @@ function toggleDarkMode() {
 }
 
 /* ------------------- LIGHTBOX ------------------- */
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.getElementById("lightboxImg");
+
+// open
 function openLightbox(src) {
-    const lb = document.getElementById("lightbox");
-    const img = document.getElementById("lightboxImg");
-    img.src = src;
-    lb.classList.add("open");
+    lightboxImg.src = src;
+    lightbox.classList.add("open");
 }
 
+// close
 function closeLightbox() {
-    document.getElementById("lightbox").classList.remove("open");
+    lightbox.classList.remove("open");
 }
+
+/* ------------------- MAKE UV IMAGES LIGHTBOX-CLICKABLE ------------------- */
+document.querySelectorAll(".uv-pair .swap-img").forEach(img => {
+    img.addEventListener("click", (e) => {
+        e.stopPropagation();
+        openLightbox(img.src);
+    });
+});
 
 /* ------------------- SECRET MODE ------------------- */
 let secretCounter = 0;
@@ -188,14 +199,28 @@ document.querySelectorAll(".uv-pair").forEach(el => {
     preload.src = imgs[1];
 });
 
-/* ------------------- UV TAP + SWIPE ------------------- */
+/* ------------------- UV TAP + SWIPE WITH SMOOTH BLUR FADE ------------------- */
 document.querySelectorAll('.uv-pair').forEach(card => {
     const imgs = JSON.parse(card.dataset.images);
     let index = 0;
     const imgEl = card.querySelector('.swap-img');
 
+    imgEl.style.transition = "opacity 0.2s ease, filter 0.25s ease";
+
+    function fadeSwap() {
+        imgEl.style.opacity = "0";
+        imgEl.style.filter = "blur(4px)";
+
+        setTimeout(() => {
+            index = (index + 1) % imgs.length;
+            imgEl.src = imgs[index];
+            imgEl.style.opacity = "1";
+            imgEl.style.filter = "blur(0px)";
+        }, 180);
+    }
+
     // tap
-    imgEl.addEventListener("click", () => fadeSwap());
+    imgEl.addEventListener("click", fadeSwap);
 
     // swipe
     let startX = 0;
@@ -203,17 +228,7 @@ document.querySelectorAll('.uv-pair').forEach(card => {
     imgEl.addEventListener("touchend", e => {
         if (Math.abs(e.changedTouches[0].clientX - startX) > 40) fadeSwap();
     });
-
-    function fadeSwap() {
-        imgEl.classList.add("fade");
-        setTimeout(() => {
-            index = (index + 1) % imgs.length;
-            imgEl.src = imgs[index];
-            imgEl.classList.remove("fade");
-        }, 200);
-    }
 });
-
 </script>
 
 </body>
