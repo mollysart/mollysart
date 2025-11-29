@@ -230,18 +230,33 @@ body.alt-theme .item {
     box-shadow: 0 14px 40px rgba(0,0,0,0.7);
 }
 
-/* ---------- APPLY VISUAL FX TO ALL IMAGES IN ALT THEME ---------- */
+/* ===============================================
+   MOBILE-SAFE ALT THEME IMAGE EFFECTS
+   (Fix for iPhone Safari & mobile Chrome)
+================================================ */
+
+/* Base override for all images in alt-theme */
 body.alt-theme img {
     filter: hue-rotate(240deg) saturate(1.6) contrast(1.2) brightness(1.1);
-    transition: filter 0.5s ease;
+    -webkit-filter: hue-rotate(240deg) saturate(1.6) contrast(1.2) brightness(1.1);
+
+    will-change: filter;
+    backface-visibility: hidden;
+    transform: translateZ(0); /* forces GPU acceleration */
+    transition: filter 0.35s ease, -webkit-filter 0.35s ease;
 }
 
-/* Make UV images go even more cosmic */
+/* UV images get a deeper effect */
 body.alt-theme .uv-img {
     filter: hue-rotate(300deg) saturate(2.2) contrast(1.3) brightness(1.05);
+    -webkit-filter: hue-rotate(300deg) saturate(2.2) contrast(1.3) brightness(1.05);
 }
 
-/* Lightbox image effect */
+/* Lightbox image must be separate for Safari */
 body.alt-theme .lightbox img {
     filter: hue-rotate(260deg) saturate(1.8) contrast(1.25);
+    -webkit-filter: hue-rotate(260deg) saturate(1.8) contrast(1.25);
+
+    will-change: filter;
+    transform: translateZ(0);
 }
