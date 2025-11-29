@@ -202,3 +202,30 @@ body {
     background: #ff4dff;
     transform: translateX(50%) scale(1.1);
 }
+
+/* ---------- EASTER EGG ALT THEME ---------- */
+/* Triggered by hidden click combo in the title (handled in JS) */
+
+body.alt-theme {
+    /* Override the colour variables just for this mode */
+    --bg: #050816;
+    --bg-dark: #050816;
+    --text: #fdfdfd;
+    --text-dark: #111111;
+    --card: #111827;
+    --card-dark: #fdfdfd;
+    --accent: #ff9f43;
+
+    background: var(--bg);
+    color: var(--text);
+}
+
+/* Make header pop a bit in alt mode */
+body.alt-theme .title-header h1 {
+    text-shadow: 0 0 18px rgba(255, 159, 67, 0.8);
+}
+
+/* Slight glow on cards in alt mode */
+body.alt-theme .item {
+    box-shadow: 0 14px 40px rgba(0,0,0,0.7);
+}
