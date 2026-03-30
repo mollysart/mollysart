@@ -296,3 +296,11 @@ body.dark .buy-link {
     background: linear-gradient(135deg, #fff, #ddd);
     color: #000;
 }
+
+.purchase {
+    margin-top: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+}
