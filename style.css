@@ -260,3 +260,26 @@ body.alt-theme .lightbox img {
     will-change: filter;
     transform: translateZ(0);
 }
+
+.buy-link {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 16px;
+    background: #111;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: 600;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.buy-link:hover {
+    opacity: 0.92;
+    transform: translateY(-1px);
+}
+
+.art-note {
+    margin-top: 8px;
+    font-size: 0.9rem;
+    color: #666;
+}
